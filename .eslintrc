@@ -28,7 +28,7 @@
         "no-sparse-arrays": 2,
         "no-unreachable": 1,
         "use-isnan": 2,
-        "valid-jsdoc": 2,
+        "valid-jsdoc": [2, {"requireParamDescription": false, "requireReturnDescription": false}],
         "valid-typeof": 2,
         "no-unexpected-multiline": 2,
         "accessor-pairs": 2,
@@ -76,7 +76,7 @@
         "no-param-reassign": [
             2,
             {
-                "props": true
+                "props": false
             }
         ],
         "no-process-env": 2,
@@ -174,7 +174,7 @@
         ],
         "comma-style": [
             2,
-            "first"
+            "last"
         ],
         "computed-property-spacing": [
             2,
@@ -193,7 +193,7 @@
         "id-length": [
             2,
             {
-                "min": 2,
+                "min": 1,
                 "max": 30
             }
         ],
@@ -204,7 +204,7 @@
         "key-spacing": [
             2,
             {
-                "beforeColon": true,
+                "beforeColon": false,
                 "afterColon": true
             }
         ],
@@ -220,7 +220,7 @@
             "unix"
         ],
         "max-nested-callbacks": [
-            2,
+            1,
             3
         ],
         "new-cap": [
