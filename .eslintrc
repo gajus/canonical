@@ -225,7 +225,7 @@
             2,
             {
                 "beforeBlockComment": true,
-                "beforeLineComment": true
+                "beforeLineComment": false
             }
         ],
         "linebreak-style": [
