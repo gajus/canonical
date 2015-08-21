@@ -156,7 +156,7 @@
         ],
         "block-spacing": [
             2,
-            "never"
+            "always"
         ],
         "brace-style": [
             2,
