@@ -298,7 +298,7 @@
             2,
             {
                 "before": false,
-                "after": false
+                "after": true
             }
         ],
         "semi": [
