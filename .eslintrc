@@ -162,7 +162,7 @@
             2,
             "1tbs",
             {
-                "allowSingleLine": false
+                "allowSingleLine": true
             }
         ],
         "camelcase": [
