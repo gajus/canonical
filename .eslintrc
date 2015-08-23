@@ -338,7 +338,7 @@
         "wrap-regex": 0,
         "arrow-parens": [
             2,
-            "as-needed"
+            "always"
         ],
         "arrow-spacing": [
             2,
