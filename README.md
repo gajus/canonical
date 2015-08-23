@@ -4,3 +4,4 @@
 
 * [`lint.yml`](./lint.yml) [scss-lint](https://github.com/brigade/scss-lint) configuration.
 * [`.eslintrc`](./.eslintrc) [ESLint](http://eslint.org/) configuration.
+* [`.editorconfig`](./.editorconfig) [EditorConfig](http://editorconfig.org/) configuration.
