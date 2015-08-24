@@ -116,6 +116,10 @@ linters:
   PropertyUnits:
     enabled: true
     global: [
+        'px',
+        'ms', 's',
+        '%'
+      ]
       # 'ch', 'em', 'ex', 'rem',                 # Font-relative lengths
       # 'cm', 'in', 'mm', 'pc', 'pt', 'px', 'q', # Absolute lengths
       # 'vh', 'vw', 'vmin', 'vmax',              # Viewport-percentage lengths
@@ -146,7 +150,7 @@ linters:
 
   SingleLinePerProperty:
     enabled: true
-    allow_single_line_rule_sets: true
+    allow_single_line_rule_sets: false
 
   SingleLinePerSelector:
     enabled: true
@@ -188,7 +192,10 @@ linters:
     enabled: true
 
   TrailingZero:
-    enabled: false
+    enabled: true
+
+  TransitionAll:
+    enabled: true
 
   UnnecessaryMantissa:
     enabled: true
@@ -214,6 +221,3 @@ linters:
 
   ZeroUnit:
     enabled: true
-
-  Compass::*:
-    enabled: false
