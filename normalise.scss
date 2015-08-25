@@ -1,0 +1,76 @@
+/**
+ * @link https://gist.github.com/gajus/d30570308001939846f7
+ * @version 2.0.0
+ */
+html,
+body,
+div,
+img,
+a,
+input,
+select,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+
+    outline: none;
+}
+
+input,
+select,
+textarea {
+    border-radius: 0;
+
+    appearance: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    user-select: none;
+
+    highlight: none;
+    tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+    text-size-adjust: none;
+}
+
+@mixin font-face ($family, $path, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $family;
+        font-weight: $weight;
+        font-style: $style;
+
+        src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$family}') format('svg');
+        src: url('#{$path}.eot');
+    }
+}
