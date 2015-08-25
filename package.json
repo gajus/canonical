@@ -1,0 +1,24 @@
+{
+  "name": "mores",
+  "description": "The essential conventions for JavaScript and CSS.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gajus/mores"
+  },
+  "keywords": [
+    "gulp"
+    "eslint",
+    "scss-lint",
+    "scss",
+    "css",
+    "lint"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Gajus Kuizinas",
+    "email": "gk@anuary.com",
+    "url": "http://gajus.com"
+  },
+  "license": "BSD-3-Clause"
+}
