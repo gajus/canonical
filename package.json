@@ -1,7 +1,7 @@
 {
   "name": "mores",
-  "description": "The essential conventions for JavaScript and CSS.",
-  "main": "src/index.js",
+  "description": "JavaScript and CSS Mores style.",
+  "main": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gajus/mores"
@@ -13,11 +13,19 @@
     "css",
     "lint"
   ],
+  "bin": {
+    "mores": "./src/index.js"
+  },
   "version": "1.0.0",
   "author": {
     "name": "Gajus Kuizinas",
     "email": "gk@anuary.com",
     "url": "http://gajus.com"
   },
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "eslint-config-mores": "^1.0.0",
+    "eslint-config-mores-react": "^1.0.0",
+    "standard-engine": "^2.0.7"
+  }
 }

@@ -1,14 +1,11 @@
 # Mores
 
-> the essential or characteristic customs and conventions of a society or community.
+## Badge
 
-## Linters
+Use this in one of your projects? Include one of these badges in your readme to let people know that your code is using the Mores style.
 
-* [`.eslintrc`](./.eslintrc) [ESLint](http://eslint.org/) configuration.
-* [`lint.yml`](./lint.yml) [scss-lint](https://github.com/brigade/scss-lint) configuration.
-* [`.csscomb.json`](./.csscomb.json) [CSScomb](http://csscomb.com/) configuration.
+[![js-standard-style](https://img.shields.io/badge/code%20style-mores-brightgreen.svg?style=flat)](https://github.com/gajus/mores)
 
-## Other
-
-* [`.editorconfig`](./.editorconfig) [EditorConfig](http://editorconfig.org/) configuration.
-* [`normalise.scss`](./normalise.scss)
+```
+[![js-standard-style](https://img.shields.io/badge/code%20style-mores-brightgreen.svg?style=flat)](https://github.com/gajus/mores)
+```
