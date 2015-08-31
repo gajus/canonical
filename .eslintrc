@@ -375,7 +375,8 @@
         "require-yield": 2
     },
     "ecmaFeatures": {
-        "modules": true
+        "modules": true,
+        "jsx": true
     },
     "env": {
         "browser": true,
