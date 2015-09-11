@@ -1,6 +1,0 @@
-{
-    "extends": [
-        "mores",
-        "mores-react"
-    ]
-}

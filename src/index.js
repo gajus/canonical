@@ -1,18 +1,38 @@
-import {
-    CLIEngine
-} from 'eslint';
-
 import path from 'path';
+import fs from 'fs';
 
-let getFormatter,
-    lintFiles;
+import _ from 'lodash';
 
-getFormatter = () => {
-    return CLIEngine.getFormatter();
+import printer from './printers/canonical';
+
+import {
+    lintText as lintJSText
+} from './linters/js/';
+
+import {
+    lintText as lintSCSSText
+} from './linters/scss/';
+
+let getPrinter,
+    lintText,
+    lintFiles,
+    linterMap;
+
+linterMap = {
+    '.js': 'js',
+    '.css': 'scss',
+    '.scss': 'scss'
 };
 
 /**
- * @typedef lintFiles~message
+ * @return {Function}
+ */
+getPrinter = () => {
+    return printer;
+};
+
+/**
+ * @typedef lintText~message
  * @property {String} ruleId
  * @property {Number} severity
  * @property {String} message
@@ -23,7 +43,7 @@ getFormatter = () => {
  */
 
 /**
- * @typedef lintFiles~result
+ * @typedef lintText~result
  * @property {String} filePath
  * @property {lintFiles~message[]} messages
  * @property {Number} errorCount
@@ -31,10 +51,34 @@ getFormatter = () => {
  */
 
 /**
+ * @typedef lintText~options
+ * @property {String} language (supported languages: 'js', 'scss').
+ */
+
+/**
+ * @param {String} text
+ * @param {lintText~options} options
+ * @return {lintText~result}
+ */
+lintText = (text, options) => {
+    let result;
+
+    if (options.linter === 'js') {
+        result = lintJSText(text)
+    } else if (options.linter === 'scss') {
+        result = lintSCSSText(text)
+    } else {
+        throw new Error(`Unknown linter "${options.linter}".`);
+    }
+
+    return result;
+};
+
+/**
  * @typedef lintFiles~report
+ * @property {lintText~result[]} results
  * @property {Number} errorCount
  * @property {Number} warningCount
- * @property {lintFiles~result[]} results
  */
 
 /**
@@ -42,20 +86,44 @@ getFormatter = () => {
  * @return {lintFiles~report}
  */
 lintFiles = (filePaths) => {
-    let cli,
-        report;
+    let report;
 
-    cli = new CLIEngine({
-        useElintrc: false,
-        baseConfig: path.resolve(__dirname, `./eslintrc.json`)
+    report = {};
+    report.results = [];
+    report.errorCount = 0;
+    report.warningCount = 0;
+
+    _.forEach(filePaths, (filePath) => {
+        let extensionName,
+            result,
+            text;
+
+        extensionName = path.extname(filePath);
+
+        if (linterMap[extensionName]) {
+            text = fs.readFileSync(filePath, {
+                encoding: 'utf8'
+            });
+
+            result = lintText(text, {
+                linter: linterMap[extensionName]
+            });
+
+            result.filePath = filePath;
+
+            report.results.push(result);
+            report.errorCount += result.errorCount;
+            report.warningCount += result.warningCount;
+        } else {
+            console.warn(`Ignoring file "${filePath}". No linter mapped to "${extensionName}" extension.`);
+        }
     });
-
-    report = cli.executeOnFiles(filePaths);
 
     return report;
 };
 
 export {
-    getFormatter,
+    getPrinter,
+    lintText,
     lintFiles
 };

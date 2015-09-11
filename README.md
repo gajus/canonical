@@ -20,54 +20,57 @@ The easiest way to use Canonical to check your code style is to install it as a 
 npm install canonical -g
 ```
 
-After that, you can run Canonical on any JavaScript file:
+After that, you can run Canonical on any JavaScript or CSS file:
 
 ```sh
-canonical ./test.js
+# Lint all JavaScript in ./src/ directory.
+canonical ./src/**/*.js
+
+# Lint all CSS in ./src/ directory.
+canonical ./src/**/*.css
+
+# Lint all JavaScript and CSS in ./src/ directory.
+canonical ./src/**/*.js ./src/**/*.css
 ```
 
 ### Node.js API
 
 ```js
+
+```
+
+### Gulp
+
+Using [Canonical](https://github.com/gajus/canonical) does not require a [Gulp](http://gulpjs.com/) plugin. Canonical [program interface](https://github.com/gajus/canonical#program-interface) gives access to all features. Use Canonical API in combination with a glob pattern matcher (e.g. [globby](https://www.npmjs.com/package/globby)) to lint multiple files, e.g.
+
+```js
+import gulp from 'gulp';
+import glob from 'globby';
+
 import {
-    getFormatter,
-    lintFiles
-} from 'canonical';
+    lintText,
+    lintFiles,
+    getFormatter
+} from 'canonical/es';
 
-/**
- * @return {Function}
- */
-getFormatter;
+gulp.task('lint-javascript', () => {
+    return glob(['./**/*.js'])
+        .then((paths) => {
+            let formatter,
+                report;
 
-/**
- * @typedef lintFiles~message
- * @property {String} ruleId
- * @property {Number} severity
- * @property {String} message
- * @property {Number} line
- * @property {Number} column
- * @property {String} nodeType
- * @property {String} source
- */
+            formatter = getFormatter();
+            report = lintFiles(paths);
 
-/**
- * @typedef lintFiles~result
- * @property {String} filePath
- * @property {lintFiles~message[]} messages
- * @property {Number} errorCount
- * @property {Number} warningCount
- */
+            if (report.errorCount || report.warningCount) {
+                console.log(formatter(report.results));
+            }
+        });
+});
+```
 
-/**
- * @typedef lintFiles~report
- * @property {Number} errorCount
- * @property {Number} warningCount
- * @property {lintFiles~result[]} results
- */
+This example is written using ES6 syntax. If you want your `gulpfile.js` to use ES6 syntax, you have to execute it using [Babel](babeljs.io) or an equivalent code-to-code compiler (ES6 to ES6), e.g.
 
-/**
- * @param {String[]} filePaths
- * @return {lintFiles~report}
- */
-lintFiles;
+```sh
+babel-node ./node_modules/.bin/gulp lint-javascript
 ```
