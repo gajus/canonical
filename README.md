@@ -24,6 +24,7 @@ Use this in one of your projects? Include one of these badges in your README to 
 [![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-brightgreen.svg?style=flat)](https://github.com/gajus/canonical)
 ```
 
+
 <h2 id="canonical-usage">Usage</h2>
 
 <h3 id="canonical-usage-command-line">Command Line</h3>

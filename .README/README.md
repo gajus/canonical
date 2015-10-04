@@ -9,6 +9,9 @@
 Canonical code style linter and formatter for JavaScript, SCSS and CSS.
 
 {"gitdown": "include", "file": "./badge.md"}
-{"gitdown": "include", "file": "./usage.md"}
+
+## Usage
+
+{"gitdown": "include", "file": "./usage/command_line.md"}
 {"gitdown": "include", "file": "./usage/gulp.md"}
 {"gitdown": "include", "file": "./usage/nodejs_api.md"}
