@@ -1,6 +1,6 @@
 import {
     lintFiles,
-    getPrinter
+    getFormatter
 } from './../';
 
 import {
@@ -11,13 +11,13 @@ import glob from 'globby';
 import path from 'path';
 import _ from 'lodash';
 
-let resolveAbsolutePath,
+let formatter,
+    resolveAbsolutePath,
     getTargetPaths,
     targetPaths,
-    report,
-    printer;
+    report;
 
-printer = getPrinter();
+formatter = getFormatter();
 
 /**
  * @param {String} relativePath Path relative to the process.cwd()
@@ -78,4 +78,4 @@ report = lintFiles(targetPaths);
 
 // console.log('report', report.results[0]);
 
-console.log(printer(report));
+console.log(formatter(report));

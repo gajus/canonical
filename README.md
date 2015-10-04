@@ -1,5 +1,7 @@
 # Canonical
 
+Canonical code style linter and formatter for JavaScript, SCSS and CSS.
+
 ## Badge
 
 Use this in one of your projects? Include one of these badges in your README to let people know that your code is using the Canonical style.
@@ -20,7 +22,7 @@ The easiest way to use Canonical to check your code style is to install it as a 
 npm install canonical -g
 ```
 
-After that, you can run Canonical on any JavaScript or CSS file:
+After that, you can run `canonical` program on any JavaScript, SCSS or CSS file:
 
 ```sh
 # Lint all JavaScript in ./src/ directory.
@@ -31,6 +33,9 @@ canonical ./src/**/*.css
 
 # Lint all JavaScript and CSS in ./src/ directory.
 canonical ./src/**/*.js ./src/**/*.css
+
+# List all supported formats in ./src/ and the descending directories.
+canonical ./src/
 ```
 
 ### Node.js API

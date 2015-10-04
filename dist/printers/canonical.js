@@ -67,10 +67,10 @@ drawTable = function (results) {
             table.addRow([message.line || 0, message.column || 0, messageType, message.message.replace(/\.$/, ''), message.ruleId || '']);
         });
 
-        output += '\n\n' + result.filePath + '\n' + table.toString();
+        output += '\n' + result.filePath + '\n' + table.toString();
     });
 
-    return output;
+    return output + '\n';
 };
 
 exports['default'] = function (report) {

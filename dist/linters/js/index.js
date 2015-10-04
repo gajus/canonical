@@ -18,6 +18,7 @@ var cli = undefined,
 
 cli = new _eslint.CLIEngine({
     useElintrc: false,
+    // baseConfig: false,
     // The './../../../src/linters/js/' path is required to accommodate that the script thats being executed is located in ./dist/ path.
     baseConfig: _path2['default'].resolve(__dirname, './../../../src/linters/js/eslintrc.json')
 });

@@ -3,7 +3,7 @@ import fs from 'fs';
 
 import _ from 'lodash';
 
-import printer from './printers/canonical';
+import formatter from './formatters/canonical';
 
 import {
     lintText as lintJSText
@@ -13,7 +13,7 @@ import {
     lintText as lintSCSSText
 } from './linters/scss/';
 
-let getPrinter,
+let getFormatter,
     lintText,
     lintFiles,
     linterMap;
@@ -27,8 +27,8 @@ linterMap = {
 /**
  * @return {Function}
  */
-getPrinter = () => {
-    return printer;
+getFormatter = () => {
+    return formatter;
 };
 
 /**
@@ -123,7 +123,7 @@ lintFiles = (filePaths) => {
 };
 
 export {
-    getPrinter,
+    getFormatter,
     lintText,
     lintFiles
 };
