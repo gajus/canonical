@@ -12,8 +12,6 @@ let drawReport,
 drawReport = (results) => {
     let files;
 
-    console.log('results', results);
-
     files = _.map(results, (result) => {
         if (!result.messages.length) {
             return;

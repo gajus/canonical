@@ -21,6 +21,9 @@
     "url": "http://gajus.com"
   },
   "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ./node_modules/.bin/babel ./src --out-dir ./dist"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
     "eslint": "^1.4.1",
@@ -33,5 +36,8 @@
     "pluralize": "^1.2.0",
     "table": "^3.0.1",
     "yargs": "^3.24.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23"
   }
 }

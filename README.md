@@ -41,16 +41,71 @@ canonical ./src/
 ### Node.js API
 
 ```js
+import {
+    getFormatter,
+    lintText,
+    lintFile
+} from 'canonical';
 
+/**
+ * @returns {function}
+ */
+getFormatter;
+
+/**
+ * @typedef lintText~message
+ * @property {string} ruleId
+ * @property {number} severity
+ * @property {string} message
+ * @property {number} line
+ * @property {number} column
+ * @property {string} nodeType
+ * @property {string} source
+ */
+
+/**
+ * @typedef lintText~result
+ * @property {string} filePath
+ * @property {lintFiles~message[]} messages
+ * @property {number} errorCount
+ * @property {number} warningCount
+ */
+
+/**
+ * @typedef lintText~options
+ * @property {string} language (supported languages: 'js', 'scss').
+ */
+
+/**
+ * @param {string} text
+ * @param {lintText~options} options
+ * @return {lintText~result}
+ */
+lintText;
+
+/**
+ * @typedef lintFiles~report
+ * @property {lintText~result[]} results
+ * @property {number} errorCount
+ * @property {number} warningCount
+ */
+
+/**
+ * @param {string[]} filePaths
+ * @return {lintFiles~report}
+ */
+lintFiles;
 ```
 
 ### Gulp
 
-Using [Canonical](https://github.com/gajus/canonical) does not require a [Gulp](http://gulpjs.com/) plugin. Canonical [program interface](https://github.com/gajus/canonical#program-interface) gives access to all features. Use Canonical API in combination with a glob pattern matcher (e.g. [globby](https://www.npmjs.com/package/globby)) to lint multiple files, e.g.
+Using [Canonical](https://github.com/gajus/canonical) does not require a [Gulp](http://gulpjs.com/) plugin. Canonical [program interface](https://github.com/gajus/canonical#program-interface) gives access to all features.
+
+Use Canonical API in combination with a glob pattern matcher (e.g. [globby](https://www.npmjs.com/package/globby)) to lint multiple files, e.g.
 
 ```js
 import gulp from 'gulp';
-import glob from 'globby';
+import globby from 'globby';
 
 import {
     lintText,
@@ -59,7 +114,7 @@ import {
 } from 'canonical/es';
 
 gulp.task('lint-javascript', () => {
-    return glob(['./**/*.js'])
+    return globby(['./**/*.js'])
         .then((paths) => {
             let formatter,
                 report;
@@ -74,7 +129,7 @@ gulp.task('lint-javascript', () => {
 });
 ```
 
-This example is written using ES6 syntax. If you want your `gulpfile.js` to use ES6 syntax, you have to execute it using [Babel](babeljs.io) or an equivalent code-to-code compiler (ES6 to ES6), e.g.
+This example is written using ES6 syntax. If you want your `gulpfile.js` to use ES6 syntax, you have to execute it using [Babel](babeljs.io) or an equivalent code-to-code compiler, e.g.
 
 ```sh
 babel-node ./node_modules/.bin/gulp lint-javascript
