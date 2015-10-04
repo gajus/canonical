@@ -31,10 +31,8 @@
     "eslint-config-canonical": "^1.0.2",
     "eslint-config-canonical-react": "^1.1.1",
     "eslint-plugin-react": "^3.3.2",
-    "glob": "^5.0.14",
     "globby": "^3.0.1",
     "lodash": "^3.10.1",
-    "pluralize": "^1.2.0",
     "table": "^3.0.1",
     "yargs": "^3.24.0"
   },
