@@ -22,6 +22,7 @@
   },
   "license": "BSD-3-Clause",
   "scripts": {
+    "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
     "build": "node ./node_modules/.bin/babel ./src --out-dir ./dist"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "yargs": "^3.24.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel": "^5.8.23",
+    "gitdown": "^2.4.0"
   }
 }
