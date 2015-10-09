@@ -23,21 +23,24 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
-    "build": "node ./node_modules/.bin/babel ./src --out-dir ./dist"
+    "build": "rm -fr ./dist; node ./node_modules/.bin/babel --copy-files ./src --out-dir ./dist",
+    "watch": "rm -fr ./dist; node ./node_modules/.bin/babel --watch --copy-files ./src --out-dir ./dist"  
   },
   "dependencies": {
+    "babel": "^5.8.23",
     "chalk": "^1.1.1",
-    "eslint": "^1.4.1",
+    "eslint": "^1.6.0",
     "eslint-config-canonical": "^1.0.2",
+    "eslint-config-canonical-jsdoc": "^1.1.1",
     "eslint-config-canonical-react": "^1.1.1",
-    "eslint-plugin-react": "^3.3.2",
+    "eslint-plugin-jsdoc": "^1.1.0",
+    "eslint-plugin-react": "^3.5.1",
     "globby": "^3.0.1",
     "lodash": "^3.10.1",
-    "table": "^3.0.1",
-    "yargs": "^3.24.0"
+    "table": "^3.6.2",
+    "yargs": "^3.27.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
     "gitdown": "^2.4.0"
   }
 }

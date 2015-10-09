@@ -79,17 +79,28 @@ drawTable = function (messages) {
                 width: 8
             },
             3: {
-                width: 80
+                width: 50,
+                paddingRight: 5
             },
             4: {
                 width: 20
             }
+        },
+        drawHorizontalLine: function drawHorizontalLine(index) {
+            return index === 1;
         }
     });
 };
 
 /**
- * @param {Object} report
+ * @typedef {Object} report
+ * @property {number} errorCount
+ * @property {number} warningCount
+ * @property {Object[]} results
+ */
+
+/**
+ * @param {report} report
  * @returns {string}
  */
 

@@ -1,17 +1,15 @@
 import path from 'path';
 import fs from 'fs';
-
 import _ from 'lodash';
-
 import formatter from './formatters/canonical';
 
 import {
     lintText as lintJSText
 } from './linters/js/';
 
-import {
+/* import {
     lintText as lintSCSSText
-} from './linters/scss/';
+} from './linters/scss/'; */
 
 let getFormatter,
     lintText,
@@ -19,9 +17,9 @@ let getFormatter,
     linterMap;
 
 linterMap = {
-    '.js': 'js',
-    '.css': 'scss',
-    '.scss': 'scss'
+    '.js': 'js'
+    // '.css': 'scss',
+    // '.scss': 'scss'
 };
 
 /**
@@ -65,8 +63,8 @@ lintText = (text, options) => {
 
     if (options.linter === 'js') {
         result = lintJSText(text)
-    } else if (options.linter === 'scss') {
-        result = lintSCSSText(text)
+    // } else if (options.linter === 'scss') {
+    //    result = lintSCSSText(text)
     } else {
         throw new Error(`Unknown linter "${options.linter}".`);
     }

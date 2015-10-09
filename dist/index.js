@@ -24,7 +24,9 @@ var _formattersCanonical2 = _interopRequireDefault(_formattersCanonical);
 
 var _lintersJs = require('./linters/js/');
 
-var _lintersScss = require('./linters/scss/');
+/* import {
+    lintText as lintSCSSText
+} from './linters/scss/'; */
 
 var getFormatter = undefined,
     lintText = undefined,
@@ -32,9 +34,9 @@ var getFormatter = undefined,
     linterMap = undefined;
 
 linterMap = {
-    '.js': 'js',
-    '.css': 'scss',
-    '.scss': 'scss'
+    '.js': 'js'
+    // '.css': 'scss',
+    // '.scss': 'scss'
 };
 
 /**
@@ -78,11 +80,11 @@ exports.lintText = lintText = function (text, options) {
 
     if (options.linter === 'js') {
         result = (0, _lintersJs.lintText)(text);
-    } else if (options.linter === 'scss') {
-        result = (0, _lintersScss.lintText)(text);
+        // } else if (options.linter === 'scss') {
+        //    result = lintSCSSText(text)
     } else {
-        throw new Error('Unknown linter "' + options.linter + '".');
-    }
+            throw new Error('Unknown linter "' + options.linter + '".');
+        }
 
     return result;
 };

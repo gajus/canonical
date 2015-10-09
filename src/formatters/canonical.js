@@ -91,7 +91,14 @@ drawTable = (messages) => {
 };
 
 /**
- * @param {Object} report
+ * @typedef {Object} report
+ * @property {number} errorCount
+ * @property {number} warningCount
+ * @property {Object[]} results
+ */
+
+/**
+ * @param {report} report
  * @returns {string}
  */
 export default (report) => {
