@@ -11,7 +11,8 @@ let cli,
 cli = new CLIEngine({
     useElintrc: false,
     // baseConfig: false,
-    baseConfig: path.resolve(__dirname, `./eslintrc.json`)
+    parser: 'babel-eslint',
+    baseConfig: path.resolve(__dirname, './eslintrc.json')
 });
 
 /**

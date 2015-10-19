@@ -19,6 +19,7 @@ var cli = undefined,
 cli = new _eslint.CLIEngine({
     useElintrc: false,
     // baseConfig: false,
+    parser: 'babel-eslint',
     baseConfig: _path2['default'].resolve(__dirname, './eslintrc.json')
 });
 

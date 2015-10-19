@@ -46,9 +46,9 @@ getTargetPaths = () => {
         exclude = _.endsWith(pathName, '/') === true;
 
         if (exclude) {
-            appendPaths.push(pathName + `**/*.js`);
-            appendPaths.push(pathName + `**/*.css`);
-            appendPaths.push(pathName + `**/*.scss`);
+            appendPaths.push(pathName + '**/*.js');
+            appendPaths.push(pathName + '**/*.css');
+            appendPaths.push(pathName + '**/*.scss');
         }
 
         return !exclude;
