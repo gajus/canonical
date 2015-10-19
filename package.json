@@ -14,7 +14,7 @@
     "lint"
   ],
   "bin": "./dist/bin/index.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "Gajus Kuizinas",
     "email": "gk@anuary.com",
@@ -24,7 +24,7 @@
   "scripts": {
     "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
     "build": "rm -fr ./dist; node ./node_modules/.bin/babel --copy-files ./src --out-dir ./dist",
-    "watch": "rm -fr ./dist; node ./node_modules/.bin/babel --watch --copy-files ./src --out-dir ./dist"  
+    "watch": "rm -fr ./dist; node ./node_modules/.bin/babel --watch --copy-files ./src --out-dir ./dist"
   },
   "dependencies": {
     "babel": "^5.8.23",
