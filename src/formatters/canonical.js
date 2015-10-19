@@ -68,20 +68,25 @@ drawTable = (messages) => {
     return table(rows, {
         columns: {
             0: {
-                width: 8
+                width: 8,
+                wrapWord: true
             },
             1: {
-                width: 8
+                width: 8,
+                wrapWord: true
             },
             2: {
-                width: 8
+                width: 8,
+                wrapWord: true
             },
             3: {
                 width: 50,
-                paddingRight: 5
+                paddingRight: 5,
+                wrapWord: true
             },
             4: {
-                width: 20
+                width: 20,
+                wrapWord: true
             }
         },
         drawHorizontalLine: (index) => {

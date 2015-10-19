@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^3.6.2",
     "globby": "^3.0.1",
     "lodash": "^3.10.1",
-    "table": "^3.6.2",
+    "table": "^3.7.0",
     "yargs": "^3.27.0"
   },
   "devDependencies": {
