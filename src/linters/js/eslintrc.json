@@ -1,3 +1,7 @@
 {
-
+    "extends": [
+        "canonical",
+        "canonical-react",
+        "canonical-jsdoc"
+    ]
 }
