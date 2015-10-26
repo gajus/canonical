@@ -14,7 +14,7 @@
     "lint"
   ],
   "bin": "./dist/bin/index.js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": {
     "name": "Gajus Kuizinas",
     "email": "gk@anuary.com",
