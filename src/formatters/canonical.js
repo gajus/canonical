@@ -22,6 +22,8 @@ drawReport = (results) => {
         return `\n${result.filePath}\n\n` + drawTable(result.messages);
     });
 
+    files = _.filter(files);
+
     return files.join(`\n`);
 };
 

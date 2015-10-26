@@ -36,6 +36,8 @@ drawReport = function (results) {
         return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
     });
 
+    files = _lodash2['default'].filter(files);
+
     return files.join('\n');
 };
 
