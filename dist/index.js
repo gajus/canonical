@@ -24,19 +24,17 @@ var _formattersCanonical2 = _interopRequireDefault(_formattersCanonical);
 
 var _lintersJs = require('./linters/js/');
 
-/* import {
-    lintText as lintSCSSText
-} from './linters/scss/'; */
+var _lintersScss = require('./linters/scss/');
 
 var getFormatter = undefined,
-    lintText = undefined,
     lintFiles = undefined,
+    lintText = undefined,
     linterMap = undefined;
 
 linterMap = {
-    '.js': 'js'
-    // '.css': 'scss',
-    // '.scss': 'scss'
+    '.js': 'js',
+    '.css': 'scss',
+    '.scss': 'scss'
 };
 
 /**
@@ -48,30 +46,30 @@ exports.getFormatter = getFormatter = function () {
 
 /**
  * @typedef lintText~message
- * @property {String} ruleId
- * @property {Number} severity
- * @property {String} message
- * @property {Number} line
- * @property {Number} column
- * @property {String} nodeType
- * @property {String} source
+ * @property {string} ruleId
+ * @property {number} severity
+ * @property {string} message
+ * @property {number} line
+ * @property {number} column
+ * @property {string} nodeType
+ * @property {string} source
  */
 
 /**
  * @typedef lintText~result
- * @property {String} filePath
+ * @property {string} filePath
  * @property {lintFiles~message[]} messages
- * @property {Number} errorCount
- * @property {Number} warningCount
+ * @property {number} errorCount
+ * @property {number} warningCount
  */
 
 /**
  * @typedef lintText~options
- * @property {String} language (supported languages: 'js', 'scss').
+ * @property {string} language (supported languages: 'js', 'scss').
  */
 
 /**
- * @param {String} text
+ * @param {string} text
  * @param {lintText~options} options
  * @return {lintText~result}
  */
@@ -80,11 +78,11 @@ exports.lintText = lintText = function (text, options) {
 
     if (options.linter === 'js') {
         result = (0, _lintersJs.lintText)(text);
-        // } else if (options.linter === 'scss') {
-        //    result = lintSCSSText(text)
+    } else if (options.linter === 'scss') {
+        result = (0, _lintersScss.lintText)(text);
     } else {
-            throw new Error('Unknown linter "' + options.linter + '".');
-        }
+        throw new Error('Unknown linter "' + options.linter + '".');
+    }
 
     return result;
 };
@@ -92,12 +90,12 @@ exports.lintText = lintText = function (text, options) {
 /**
  * @typedef lintFiles~report
  * @property {lintText~result[]} results
- * @property {Number} errorCount
- * @property {Number} warningCount
+ * @property {number} errorCount
+ * @property {number} warningCount
  */
 
 /**
- * @param {String[]} filePaths
+ * @param {string[]} filePaths
  * @return {lintFiles~report}
  */
 exports.lintFiles = lintFiles = function (filePaths) {
@@ -130,7 +128,9 @@ exports.lintFiles = lintFiles = function (filePaths) {
             report.errorCount += result.errorCount;
             report.warningCount += result.warningCount;
         } else {
+            /* eslint-disable no-console */
             console.warn('Ignoring file "' + filePath + '". No linter mapped to "' + extensionName + '" extension.');
+            /* eslint-enable no-console */
         }
     });
 

@@ -19,6 +19,8 @@ cli = new CLIEngine({
  * @returns {string}
  */
 lintText = (text) => {
+    // console.log('cli.executeOnText(text).results[0]', cli.executeOnText(text).results[0]);
+
     return cli.executeOnText(text).results[0];
 };
 

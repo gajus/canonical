@@ -1,19 +1,5 @@
-/* import {
-    CLIEngine
-} from 'eslint';
-
+import SassLinter from 'sass-lint';
 import path from 'path';
-
-let cli,
-    lintText,
-    lintFiles;
-
-cli = new CLIEngine({
-    useElintrc: false,
-    // baseConfig: false,
-    parser: 'babel-eslint',
-    baseConfig: path.resolve(__dirname, './eslintrc.json')
-}); */
 
 let lintText;
 
@@ -22,7 +8,15 @@ let lintText;
  * @returns {string}
  */
 lintText = (text) => {
-    // return cli.executeOnText(text).results[0];
+    let report;
+
+    report = SassLinter.lintText({
+        text: text,
+        filename: '<text>',
+        format: 'scss'
+    }, {}, path.resolve(__dirname, '.sass-lint.yml'));
+
+    return report;
 };
 
 export {

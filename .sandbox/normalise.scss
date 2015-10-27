@@ -56,10 +56,12 @@ li {
 }
 
 body {
+    $tap-highlight-color: rgba(0, 0, 0, 0);
+
     user-select: none;
 
     highlight: none;
-    tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: $tap-highlight-color;
     text-rendering: optimizeLegibility;
     text-size-adjust: none;
 }
@@ -70,7 +72,6 @@ body {
         font-weight: $weight;
         font-style: $style;
 
-        src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$family}') format('svg');
-        src: url('#{$path}.eot');
+        src: url('sourcesanspro-boldit-webfont.ttf') format('truetype');
     }
 }

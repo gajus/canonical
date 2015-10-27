@@ -19,27 +19,29 @@ var _lodash = require('lodash');
 var _lodash2 = _interopRequireDefault(_lodash);
 
 var formatter = undefined,
-    resolveAbsolutePath = undefined,
     getTargetPaths = undefined,
-    targetPaths = undefined,
-    report = undefined;
+    report = undefined,
+    resolveAbsolutePath = undefined,
+    targetPaths = undefined;
 
 formatter = (0, _2.getFormatter)();
 
 /**
- * @param {String} relativePath Path relative to the process.cwd()
- * @return {String} Absolute path.
+ * @param {string} relativePath Path relative to the process.cwd()
+ * @returns {string} Absolute path.
  */
 resolveAbsolutePath = function (relativePath) {
     return _path2['default'].resolve(process.cwd(), relativePath);
 };
 
 /**
- * @return {String[]}
+ * @returns {string[]}
  */
 getTargetPaths = function () {
-    var paths = undefined,
-        appendPaths = [];
+    var appendPaths = undefined,
+        paths = undefined;
+
+    appendPaths = [];
 
     if (_yargs.argv._.length) {
         paths = _yargs.argv._;
@@ -85,4 +87,6 @@ report = (0, _2.lintFiles)(targetPaths);
 
 // console.log('report', report.results[0]);
 
+/* eslint-disable no-console */
 console.log(formatter(report));
+/* eslint-enable no-console */

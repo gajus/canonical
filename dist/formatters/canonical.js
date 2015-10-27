@@ -23,14 +23,14 @@ var drawReport = undefined,
 
 /**
  * @param {Array} results
- * @return {string}
+ * @returns {string}
  */
 drawReport = function (results) {
     var files = undefined;
 
     files = _lodash2['default'].map(results, function (result) {
         if (!result.messages.length) {
-            return;
+            return '';
         }
 
         return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
@@ -43,16 +43,15 @@ drawReport = function (results) {
 
 /**
  * @param {Array} messages
- * @return {string}
+ * @returns {string}
  */
 drawTable = function (messages) {
-    var rows = undefined,
-        output = undefined;
+    var rows = undefined;
 
     rows = [];
 
     if (messages.length === 0) {
-        return;
+        return '';
     }
 
     rows.push([_chalk2['default'].bold('Line'), _chalk2['default'].bold('Column'), _chalk2['default'].bold('Type'), _chalk2['default'].bold('Message'), _chalk2['default'].bold('Rule ID')]);
