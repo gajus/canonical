@@ -7,19 +7,19 @@ import {
     lintText as lintJSText
 } from './linters/js/';
 
-/* import {
+import {
     lintText as lintSCSSText
-} from './linters/scss/'; */
+} from './linters/scss/';
 
 let getFormatter,
-    lintText,
     lintFiles,
+    lintText,
     linterMap;
 
 linterMap = {
-    '.js': 'js'
-    // '.css': 'scss',
-    // '.scss': 'scss'
+    '.js': 'js',
+    '.css': 'scss',
+    '.scss': 'scss'
 };
 
 /**
@@ -31,30 +31,30 @@ getFormatter = () => {
 
 /**
  * @typedef lintText~message
- * @property {String} ruleId
- * @property {Number} severity
- * @property {String} message
- * @property {Number} line
- * @property {Number} column
- * @property {String} nodeType
- * @property {String} source
+ * @property {string} ruleId
+ * @property {number} severity
+ * @property {string} message
+ * @property {number} line
+ * @property {number} column
+ * @property {string} nodeType
+ * @property {string} source
  */
 
 /**
  * @typedef lintText~result
- * @property {String} filePath
+ * @property {string} filePath
  * @property {lintFiles~message[]} messages
- * @property {Number} errorCount
- * @property {Number} warningCount
+ * @property {number} errorCount
+ * @property {number} warningCount
  */
 
 /**
  * @typedef lintText~options
- * @property {String} language (supported languages: 'js', 'scss').
+ * @property {string} language (supported languages: 'js', 'scss').
  */
 
 /**
- * @param {String} text
+ * @param {string} text
  * @param {lintText~options} options
  * @return {lintText~result}
  */
@@ -62,11 +62,11 @@ lintText = (text, options) => {
     let result;
 
     if (options.linter === 'js') {
-        result = lintJSText(text)
-    // } else if (options.linter === 'scss') {
-    //    result = lintSCSSText(text)
+        result = lintJSText(text);
+    } else if (options.linter === 'scss') {
+        result = lintSCSSText(text);
     } else {
-        throw new Error(`Unknown linter "${options.linter}".`);
+        throw new Error('Unknown linter "' + options.linter + '".');
     }
 
     return result;
@@ -75,12 +75,12 @@ lintText = (text, options) => {
 /**
  * @typedef lintFiles~report
  * @property {lintText~result[]} results
- * @property {Number} errorCount
- * @property {Number} warningCount
+ * @property {number} errorCount
+ * @property {number} warningCount
  */
 
 /**
- * @param {String[]} filePaths
+ * @param {string[]} filePaths
  * @return {lintFiles~report}
  */
 lintFiles = (filePaths) => {
@@ -113,7 +113,9 @@ lintFiles = (filePaths) => {
             report.errorCount += result.errorCount;
             report.warningCount += result.warningCount;
         } else {
-            console.warn(`Ignoring file "${filePath}". No linter mapped to "${extensionName}" extension.`);
+            /* eslint-disable no-console */
+            console.warn('Ignoring file "' + filePath + '". No linter mapped to "' + extensionName + '" extension.');
+            /* eslint-enable no-console */
         }
     });
 

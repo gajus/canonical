@@ -1,7 +1,5 @@
 import chalk from 'chalk';
-import table, {
-    getBorderCharacters
-} from 'table';
+import table from 'table';
 import _ from 'lodash';
 
 let drawReport,
@@ -9,61 +7,60 @@ let drawReport,
 
 /**
  * @param {Array} results
- * @return {string}
+ * @returns {string}
  */
 drawReport = (results) => {
     let files;
 
     files = _.map(results, (result) => {
         if (!result.messages.length) {
-            return;
+            return '';
         }
 
-        return `\n${result.filePath}\n\n` + drawTable(result.messages);
+        return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
     });
 
     files = _.filter(files);
 
-    return files.join(`\n`);
+    return files.join('\n');
 };
 
 /**
  * @param {Array} messages
- * @return {string}
+ * @returns {string}
  */
 drawTable = (messages) => {
-    let rows,
-        output;
+    let rows;
 
     rows = [];
 
     if (messages.length === 0) {
-        return;
+        return '';
     }
 
     rows.push([
-        chalk.bold(`Line`),
-        chalk.bold(`Column`),
-        chalk.bold(`Type`),
-        chalk.bold(`Message`),
-        chalk.bold(`Rule ID`)
+        chalk.bold('Line'),
+        chalk.bold('Column'),
+        chalk.bold('Type'),
+        chalk.bold('Message'),
+        chalk.bold('Rule ID')
     ]);
 
     _.forEach(messages, (message) => {
         let messageType;
 
         if (message.fatal || message.severity === 2) {
-            messageType = chalk.red(`error`);
+            messageType = chalk.red('error');
         } else {
-            messageType = chalk.yellow(`warning`);
+            messageType = chalk.yellow('warning');
         }
 
         rows.push([
             message.line || 0,
             message.column || 0,
             messageType,
-            message.message.replace(/\.$/, ``),
-            message.ruleId || ``
+            message.message.replace(/\.$/, ''),
+            message.ruleId || ''
         ]);
     });
 

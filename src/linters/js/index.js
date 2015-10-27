@@ -5,8 +5,7 @@ import {
 import path from 'path';
 
 let cli,
-    lintText,
-    lintFiles;
+    lintText;
 
 cli = new CLIEngine({
     useElintrc: false,
@@ -16,7 +15,8 @@ cli = new CLIEngine({
 });
 
 /**
- * @param {String} text
+ * @param {string} text
+ * @returns {string}
  */
 lintText = (text) => {
     return cli.executeOnText(text).results[0];

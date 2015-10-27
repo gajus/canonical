@@ -12,32 +12,34 @@ import path from 'path';
 import _ from 'lodash';
 
 let formatter,
-    resolveAbsolutePath,
     getTargetPaths,
-    targetPaths,
-    report;
+    report,
+    resolveAbsolutePath,
+    targetPaths;
 
 formatter = getFormatter();
 
 /**
- * @param {String} relativePath Path relative to the process.cwd()
- * @return {String} Absolute path.
+ * @param {string} relativePath Path relative to the process.cwd()
+ * @returns {string} Absolute path.
  */
 resolveAbsolutePath = (relativePath) => {
     return path.resolve(process.cwd(), relativePath);
 };
 
 /**
- * @return {String[]}
+ * @returns {string[]}
  */
 getTargetPaths = () => {
-    let paths,
-        appendPaths = [];
+    let appendPaths,
+        paths;
+
+    appendPaths = [];
 
     if (argv._.length) {
         paths = argv._;
     } else {
-        paths = [`./`];
+        paths = ['./'];
     }
 
     paths = _.filter(paths, (pathName) => {
@@ -78,4 +80,6 @@ report = lintFiles(targetPaths);
 
 // console.log('report', report.results[0]);
 
+/* eslint-disable no-console */
 console.log(formatter(report));
+/* eslint-enable no-console */
