@@ -14,7 +14,7 @@ lintText = (text) => {
         text: text,
         filename: '<text>',
         format: 'scss'
-    }, {}, path.resolve(__dirname, '.sass-lint.yml'));
+    }, {}, path.resolve(__dirname, './sass-lint.yml'));
 
     return report;
 };

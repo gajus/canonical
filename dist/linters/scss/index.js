@@ -28,7 +28,7 @@ exports.lintText = lintText = function (text) {
         text: text,
         filename: '<text>',
         format: 'scss'
-    }, {}, _path2.default.resolve(__dirname, '.sass-lint.yml'));
+    }, {}, _path2.default.resolve(__dirname, './sass-lint.yml'));
 
     return report;
 };
