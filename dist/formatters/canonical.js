@@ -1,10 +1,8 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _chalk = require('chalk');
 
@@ -18,6 +16,8 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var drawReport = undefined,
     drawTable = undefined;
 
@@ -28,7 +28,7 @@ var drawReport = undefined,
 drawReport = function (results) {
     var files = undefined;
 
-    files = _lodash2['default'].map(results, function (result) {
+    files = _lodash2.default.map(results, function (result) {
         if (!result.messages.length) {
             return '';
         }
@@ -36,7 +36,7 @@ drawReport = function (results) {
         return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
     });
 
-    files = _lodash2['default'].filter(files);
+    files = _lodash2.default.filter(files);
 
     return files.join('\n');
 };
@@ -54,21 +54,21 @@ drawTable = function (messages) {
         return '';
     }
 
-    rows.push([_chalk2['default'].bold('Line'), _chalk2['default'].bold('Column'), _chalk2['default'].bold('Type'), _chalk2['default'].bold('Message'), _chalk2['default'].bold('Rule ID')]);
+    rows.push([_chalk2.default.bold('Line'), _chalk2.default.bold('Column'), _chalk2.default.bold('Type'), _chalk2.default.bold('Message'), _chalk2.default.bold('Rule ID')]);
 
-    _lodash2['default'].forEach(messages, function (message) {
+    _lodash2.default.forEach(messages, function (message) {
         var messageType = undefined;
 
         if (message.fatal || message.severity === 2) {
-            messageType = _chalk2['default'].red('error');
+            messageType = _chalk2.default.red('error');
         } else {
-            messageType = _chalk2['default'].yellow('warning');
+            messageType = _chalk2.default.yellow('warning');
         }
 
         rows.push([message.line || 0, message.column || 0, messageType, message.message.replace(/\.$/, ''), message.ruleId || '']);
     });
 
-    return (0, _table2['default'])(rows, {
+    return (0, _table2.default)(rows, {
         columns: {
             0: {
                 width: 8,
@@ -110,7 +110,7 @@ drawTable = function (messages) {
  * @returns {string}
  */
 
-exports['default'] = function (report) {
+exports.default = function (report) {
     var result = undefined;
 
     result = '';
@@ -121,5 +121,3 @@ exports['default'] = function (report) {
 
     return result;
 };
-
-module.exports = exports['default'];

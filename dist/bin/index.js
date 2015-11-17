@@ -1,7 +1,5 @@
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 var _2 = require('./../');
 
 var _yargs = require('yargs');
@@ -18,6 +16,8 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var formatter = undefined,
     getTargetPaths = undefined,
     report = undefined,
@@ -31,7 +31,7 @@ formatter = (0, _2.getFormatter)();
  * @returns {string} Absolute path.
  */
 resolveAbsolutePath = function (relativePath) {
-    return _path2['default'].resolve(process.cwd(), relativePath);
+    return _path2.default.resolve(process.cwd(), relativePath);
 };
 
 /**
@@ -49,10 +49,10 @@ getTargetPaths = function () {
         paths = ['./'];
     }
 
-    paths = _lodash2['default'].filter(paths, function (pathName) {
+    paths = _lodash2.default.filter(paths, function (pathName) {
         var exclude = undefined;
 
-        exclude = _lodash2['default'].endsWith(pathName, '/') === true;
+        exclude = _lodash2.default.endsWith(pathName, '/') === true;
 
         if (exclude) {
             appendPaths.push(pathName + '**/*.js');
@@ -64,15 +64,15 @@ getTargetPaths = function () {
     });
 
     paths = paths.concat(appendPaths);
-    paths = _lodash2['default'].unique(paths);
+    paths = _lodash2.default.unique(paths);
 
-    paths = _globby2['default'].sync(paths);
+    paths = _globby2.default.sync(paths);
     // @todo Test whether glob.sync can return non-unique file paths.
     // paths = _.unique(paths);
 
     // console.log('paths', paths);
 
-    paths = _lodash2['default'].map(paths, resolveAbsolutePath);
+    paths = _lodash2.default.map(paths, resolveAbsolutePath);
 
     // console.log('paths', paths);
 

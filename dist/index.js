@@ -1,10 +1,9 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+exports.lintFiles = exports.lintText = exports.getFormatter = undefined;
 
 var _path = require('path');
 
@@ -18,13 +17,15 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _formattersCanonical = require('./formatters/canonical');
+var _canonical = require('./formatters/canonical');
 
-var _formattersCanonical2 = _interopRequireDefault(_formattersCanonical);
+var _canonical2 = _interopRequireDefault(_canonical);
 
-var _lintersJs = require('./linters/js/');
+var _js = require('./linters/js/');
 
-var _lintersScss = require('./linters/scss/');
+var _scss = require('./linters/scss/');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getFormatter = undefined,
     lintFiles = undefined,
@@ -41,7 +42,7 @@ linterMap = {
  * @return {Function}
  */
 exports.getFormatter = getFormatter = function () {
-    return _formattersCanonical2['default'];
+    return _canonical2.default;
 };
 
 /**
@@ -77,9 +78,9 @@ exports.lintText = lintText = function (text, options) {
     var result = undefined;
 
     if (options.linter === 'js') {
-        result = (0, _lintersJs.lintText)(text);
+        result = (0, _js.lintText)(text);
     } else if (options.linter === 'scss') {
-        result = (0, _lintersScss.lintText)(text);
+        result = (0, _scss.lintText)(text);
     } else {
         throw new Error('Unknown linter "' + options.linter + '".');
     }
@@ -106,15 +107,15 @@ exports.lintFiles = lintFiles = function (filePaths) {
     report.errorCount = 0;
     report.warningCount = 0;
 
-    _lodash2['default'].forEach(filePaths, function (filePath) {
+    _lodash2.default.forEach(filePaths, function (filePath) {
         var extensionName = undefined,
             result = undefined,
             text = undefined;
 
-        extensionName = _path2['default'].extname(filePath);
+        extensionName = _path2.default.extname(filePath);
 
         if (linterMap[extensionName]) {
-            text = _fs2['default'].readFileSync(filePath, {
+            text = _fs2.default.readFileSync(filePath, {
                 encoding: 'utf8'
             });
 
