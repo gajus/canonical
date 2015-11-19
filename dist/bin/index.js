@@ -1,8 +1,14 @@
 'use strict';
 
+var _getStdin = require('get-stdin');
+
+var _getStdin2 = _interopRequireDefault(_getStdin);
+
 var _2 = require('./../');
 
 var _yargs = require('yargs');
+
+var _yargs2 = _interopRequireDefault(_yargs);
 
 var _globby = require('globby');
 
@@ -18,13 +24,22 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var formatter = undefined,
-    getTargetPaths = undefined,
-    report = undefined,
+var getTargetPaths = undefined,
+    outputReport = undefined,
     resolveAbsolutePath = undefined,
     targetPaths = undefined;
 
-formatter = (0, _2.getFormatter)();
+_yargs2.default.options({
+    stdin: {
+        describe: 'Used to indicate that subject body will be read from stdin.',
+        type: 'boolean',
+        default: false
+    },
+    outputFormat: {
+        choices: ['json', 'table'],
+        default: 'table'
+    }
+}).argv;
 
 /**
  * @param {string} relativePath Path relative to the process.cwd()
@@ -79,14 +94,67 @@ getTargetPaths = function () {
     return paths;
 };
 
-targetPaths = getTargetPaths();
+/**
+ * @param {Object} report
+ * @returns {undefined}
+ */
+outputReport = function (report) {
+    var formatter = undefined,
+        output = undefined;
 
-// console.log('targetPaths', targetPaths);
+    if (_yargs.argv.outputFormat === 'json') {
+        output = JSON.stringify({
+            messages: report.messages,
+            errorCount: report.errorCount,
+            warningCount: report.warningCount
+        }, '', 4);
+    } else {
+        formatter = (0, _2.getFormatter)();
 
-report = (0, _2.lintFiles)(targetPaths);
+        if (_yargs.argv.stdin) {
+            output = formatter({
+                results: [report],
+                errorCount: report.errorCount,
+                warningCount: report.warningCount
+            });
+        } else {
+            output = formatter(report);
+        }
+    }
 
-// console.log('report', report.results[0]);
+    /* eslint-disable no-console */
+    console.log(output);
+    /* eslint-enable no-console */
+};
 
-/* eslint-disable no-console */
-console.log(formatter(report));
-/* eslint-enable no-console */
+if (_yargs.argv.stdin) {
+    _yargs2.default.options({
+        linter: {
+            demand: true,
+            describe: 'The type of input.',
+            choices: ['js', 'scss']
+        }
+    }).argv;
+
+    (0, _getStdin2.default)().then(function (stdin) {
+        var report = undefined;
+
+        report = (0, _2.lintText)(stdin, {
+            linter: _yargs.argv.linter
+        });
+
+        // console.log('BEST', stdin, argv.linter, lintText);
+
+        outputReport(report);
+    });
+} else {
+    var report = undefined;
+
+    targetPaths = getTargetPaths();
+
+    // console.log('targetPaths', targetPaths);
+
+    report = (0, _2.lintFiles)(targetPaths);
+
+    outputReport(report);
+}

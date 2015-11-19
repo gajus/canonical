@@ -66,7 +66,7 @@ exports.getFormatter = getFormatter = function () {
 
 /**
  * @typedef lintText~options
- * @property {string} language (supported languages: 'js', 'scss').
+ * @property {string} linter (supported linters: 'js', 'scss').
  */
 
 /**

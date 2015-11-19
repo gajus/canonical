@@ -1,9 +1,12 @@
+import getStdin from 'get-stdin';
+
 import {
     lintFiles,
+    lintText,
     getFormatter
 } from './../';
 
-import {
+import yargs, {
     argv
 } from 'yargs';
 
@@ -11,13 +14,27 @@ import glob from 'globby';
 import path from 'path';
 import _ from 'lodash';
 
-let formatter,
-    getTargetPaths,
-    report,
+let getTargetPaths,
+    outputReport,
     resolveAbsolutePath,
     targetPaths;
 
-formatter = getFormatter();
+yargs
+    .options({
+        stdin: {
+            describe: 'Used to indicate that subject body will be read from stdin.',
+            type: 'boolean',
+            default: false
+        },
+        outputFormat: {
+            choices: [
+                'json',
+                'table'
+            ],
+            default: 'table'
+        }
+    })
+    .argv;
 
 /**
  * @param {string} relativePath Path relative to the process.cwd()
@@ -72,14 +89,75 @@ getTargetPaths = () => {
     return paths;
 };
 
-targetPaths = getTargetPaths();
+/**
+ * @param {Object} report
+ * @returns {undefined}
+ */
+outputReport = (report) => {
+    let formatter,
+        output;
 
-// console.log('targetPaths', targetPaths);
+    if (argv.outputFormat === 'json') {
+        output = JSON.stringify({
+            messages: report.messages,
+            errorCount: report.errorCount,
+            warningCount: report.warningCount
+        }, '', 4);
+    } else {
+        formatter = getFormatter();
 
-report = lintFiles(targetPaths);
+        if (argv.stdin) {
+            output = formatter({
+                results: [
+                    report
+                ],
+                errorCount: report.errorCount,
+                warningCount: report.warningCount
+            });
+        } else {
+            output = formatter(report);
+        }
+    }
 
-// console.log('report', report.results[0]);
+    /* eslint-disable no-console */
+    console.log(output);
+    /* eslint-enable no-console */
+};
 
-/* eslint-disable no-console */
-console.log(formatter(report));
-/* eslint-enable no-console */
+if (argv.stdin) {
+    yargs
+        .options({
+            linter: {
+                demand: true,
+                describe: 'The type of input.',
+                choices: [
+                    'js',
+                    'scss'
+                ]
+            }
+        })
+        .argv;
+
+    getStdin()
+        .then((stdin) => {
+            let report;
+
+            report = lintText(stdin, {
+                linter: argv.linter
+            });
+
+            // console.log('BEST', stdin, argv.linter, lintText);
+
+            outputReport(report);
+        });
+} else {
+    let report;
+
+    targetPaths = getTargetPaths();
+
+    // console.log('targetPaths', targetPaths);
+
+    report = lintFiles(targetPaths);
+
+    outputReport(report);
+}

@@ -51,6 +51,26 @@ canonical ./src/**/*.js ./src/**/*.css
 canonical ./src/
 ```
 
+<h4 id="canonical-usage-command-line-reading-from-stdin">Reading from Stdin</h4>
+
+`canonical` program can read from stdin, e.g.
+
+```
+echo 'var test;' | canonical --stdin --linter js --output-format json
+```
+
+When reading from stdin, it is required to provide `--linter` option. See [Command Line Options](#command-line-options).
+
+<h4 id="canonical-usage-command-line-command-line-options">Command Line Options</h4>
+
+```
+Options:
+  --stdin         Used to indicate that subject body will be read from stdin.
+                                                      [boolean] [default: false]
+  --linter        The type of input.          [required] [choices: "js", "scss"]
+  --outputFormat                   [choices: "json", "table"] [default: "table"]
+```
+
 <h3 id="canonical-usage-gulp">Gulp</h3>
 
 Using [Canonical](https://github.com/gajus/canonical) does not require a [Gulp](http://gulpjs.com/) plugin. Canonical [program interface](https://github.com/gajus/canonical#program-interface) gives access to all features.
