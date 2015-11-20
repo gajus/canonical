@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import getStdin from 'get-stdin';
 
 import {
