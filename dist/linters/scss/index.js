@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.lintText = undefined;
 
-var _sassLint = require('sass-lint');
+var _cssLint = require('css-lint');
 
-var _sassLint2 = _interopRequireDefault(_sassLint);
+var _cssLint2 = _interopRequireDefault(_cssLint);
 
 var _path = require('path');
 
@@ -24,11 +24,11 @@ var lintText = undefined;
 exports.lintText = lintText = function (text) {
     var report = undefined;
 
-    report = _sassLint2.default.lintText({
+    report = _cssLint2.default.lintText({
         text: text,
         filename: '<text>',
         format: 'scss'
-    }, {}, _path2.default.resolve(__dirname, './sass-lint.yml'));
+    }, {}, _path2.default.resolve(__dirname, './css-lint.yml'));
 
     return report;
 };

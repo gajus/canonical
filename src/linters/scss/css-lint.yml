@@ -1,8 +1,5 @@
 options:
     merge-default-rules: false
-#    formatter: stylish
-# files:
-#     include: '**/*.s+(a|c)ss'
 rules:
     # Extends
     extends-before-mixins: 1
@@ -100,7 +97,7 @@ rules:
         - 1
         - order:
             - composes
-
+            - (group separator)
             - font
             - font-family
             - font-size
@@ -115,14 +112,14 @@ rules:
             - font-emphasize-style
             - font-smooth
             - line-height
-
+            - (group separator)
             - position
             - z-index
             - top
             - right
             - bottom
-            - left"
-
+            - left
+            - (group separator)
             - display
             - visibility
             - float
@@ -136,7 +133,7 @@ rules:
             - flex-order
             - flex-pack
             - flex-align
-
+            - (group separator)
             - box-sizing
             - width
             - min-width
@@ -154,7 +151,7 @@ rules:
             - padding-right
             - padding-bottom
             - padding-left"
-
+            - (group separator)
             - table-layout
             - empty-cells
             - caption-side
@@ -164,7 +161,7 @@ rules:
             - list-style-position
             - list-style-type
             - list-style-image
-
+            - (group separator)
             - content
             - quotes
             - counter-reset
@@ -216,7 +213,7 @@ rules:
             - tab-size
             - hyphens
             - pointer-events
-
+            - (group separator)
             - opacity
             - color
             - border

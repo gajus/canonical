@@ -24,16 +24,15 @@ h6,
 p {
     margin: 0;
     padding: 0;
-
     outline: none;
 }
 
 input,
 select,
 textarea {
-    border-radius: 0;
-
     appearance: none;
+
+    border-radius: 0;
 }
 
 h1,
@@ -47,7 +46,6 @@ h6 {
 
 a {
     text-decoration: none;
-
     color: inherit;
 }
 

@@ -1,4 +1,4 @@
-import SassLinter from 'sass-lint';
+import SassLinter from 'css-lint';
 import path from 'path';
 
 let lintText;
@@ -14,7 +14,7 @@ lintText = (text) => {
         text: text,
         filename: '<text>',
         format: 'scss'
-    }, {}, path.resolve(__dirname, './sass-lint.yml'));
+    }, {}, path.resolve(__dirname, './css-lint.yml'));
 
     return report;
 };
