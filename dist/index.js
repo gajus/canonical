@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.lintFiles = exports.lintText = exports.getFormatter = undefined;
 
+var _forEach = require('lodash/collection/forEach');
+
+var _forEach2 = _interopRequireDefault(_forEach);
+
 var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
@@ -12,10 +16,6 @@ var _path2 = _interopRequireDefault(_path);
 var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
 
 var _canonical = require('./formatters/canonical');
 
@@ -107,7 +107,7 @@ exports.lintFiles = lintFiles = function (filePaths) {
     report.errorCount = 0;
     report.warningCount = 0;
 
-    _lodash2.default.forEach(filePaths, function (filePath) {
+    (0, _forEach2.default)(filePaths, function (filePath) {
         var extensionName = undefined,
             result = undefined,
             text = undefined;
@@ -141,3 +141,4 @@ exports.lintFiles = lintFiles = function (filePaths) {
 exports.getFormatter = getFormatter;
 exports.lintText = lintText;
 exports.lintFiles = lintFiles;
+//# sourceMappingURL=index.js.map

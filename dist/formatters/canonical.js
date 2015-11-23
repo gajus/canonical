@@ -4,6 +4,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _forEach = require('lodash/collection/forEach');
+
+var _forEach2 = _interopRequireDefault(_forEach);
+
+var _filter = require('lodash/collection/filter');
+
+var _filter2 = _interopRequireDefault(_filter);
+
+var _map = require('lodash/collection/map');
+
+var _map2 = _interopRequireDefault(_map);
+
 var _chalk = require('chalk');
 
 var _chalk2 = _interopRequireDefault(_chalk);
@@ -11,10 +23,6 @@ var _chalk2 = _interopRequireDefault(_chalk);
 var _table = require('table');
 
 var _table2 = _interopRequireDefault(_table);
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,7 +36,7 @@ var drawReport = undefined,
 drawReport = function (results) {
     var files = undefined;
 
-    files = _lodash2.default.map(results, function (result) {
+    files = (0, _map2.default)(results, function (result) {
         if (!result.messages.length) {
             return '';
         }
@@ -36,7 +44,7 @@ drawReport = function (results) {
         return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
     });
 
-    files = _lodash2.default.filter(files);
+    files = (0, _filter2.default)(files);
 
     return files.join('\n');
 };
@@ -56,7 +64,7 @@ drawTable = function (messages) {
 
     rows.push([_chalk2.default.bold('Line'), _chalk2.default.bold('Column'), _chalk2.default.bold('Type'), _chalk2.default.bold('Message'), _chalk2.default.bold('Rule ID')]);
 
-    _lodash2.default.forEach(messages, function (message) {
+    (0, _forEach2.default)(messages, function (message) {
         var messageType = undefined;
 
         if (message.fatal || message.severity === 2) {
@@ -121,3 +129,4 @@ exports.default = function (report) {
 
     return result;
 };
+//# sourceMappingURL=canonical.js.map

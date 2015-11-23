@@ -34,3 +34,4 @@ exports.lintText = lintText = function (text) {
 };
 
 exports.lintText = lintText;
+//# sourceMappingURL=index.js.map

@@ -1,6 +1,22 @@
 #! /usr/bin/env node
 'use strict';
 
+var _map = require('lodash/collection/map');
+
+var _map2 = _interopRequireDefault(_map);
+
+var _unique = require('lodash/array/unique');
+
+var _unique2 = _interopRequireDefault(_unique);
+
+var _endsWith = require('lodash/string/endsWith');
+
+var _endsWith2 = _interopRequireDefault(_endsWith);
+
+var _filter = require('lodash/collection/filter');
+
+var _filter2 = _interopRequireDefault(_filter);
+
 var _getStdin = require('get-stdin');
 
 var _getStdin2 = _interopRequireDefault(_getStdin);
@@ -18,10 +34,6 @@ var _globby2 = _interopRequireDefault(_globby);
 var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -65,10 +77,10 @@ getTargetPaths = function () {
         paths = ['./'];
     }
 
-    paths = _lodash2.default.filter(paths, function (pathName) {
+    paths = (0, _filter2.default)(paths, function (pathName) {
         var exclude = undefined;
 
-        exclude = _lodash2.default.endsWith(pathName, '/') === true;
+        exclude = (0, _endsWith2.default)(pathName, '/') === true;
 
         if (exclude) {
             appendPaths.push(pathName + '**/*.js');
@@ -80,7 +92,7 @@ getTargetPaths = function () {
     });
 
     paths = paths.concat(appendPaths);
-    paths = _lodash2.default.unique(paths);
+    paths = (0, _unique2.default)(paths);
 
     paths = _globby2.default.sync(paths);
     // @todo Test whether glob.sync can return non-unique file paths.
@@ -88,7 +100,7 @@ getTargetPaths = function () {
 
     // console.log('paths', paths);
 
-    paths = _lodash2.default.map(paths, resolveAbsolutePath);
+    paths = (0, _map2.default)(paths, resolveAbsolutePath);
 
     // console.log('paths', paths);
 
@@ -159,3 +171,4 @@ if (_yargs.argv.stdin) {
 
     outputReport(report);
 }
+//# sourceMappingURL=index.js.map
