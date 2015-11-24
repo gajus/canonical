@@ -36,6 +36,7 @@
     "eslint": "^1.10.1",
     "eslint-config-canonical": "^1.2.6",
     "eslint-config-canonical-jsdoc": "^1.2.1",
+    "eslint-config-canonical-lodash": "^1.0.0",
     "eslint-config-canonical-react": "^1.2.1",
     "get-stdin": "^5.0.1",
     "globby": "^4.0.0",

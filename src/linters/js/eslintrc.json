@@ -2,6 +2,7 @@
     "extends": [
         "canonical",
         "canonical-react",
-        "canonical-jsdoc"
+        "canonical-jsdoc",
+        "canonical-lodash"
     ]
 }
