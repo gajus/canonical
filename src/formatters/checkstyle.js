@@ -1,5 +1,7 @@
-let getReportForFile,
-    getMessageType;
+import _ from 'lodash';
+
+let getMessageType,
+    getReportForFile;
 
 /**
  * @param {lintText~message} message
@@ -7,9 +9,9 @@ let getReportForFile,
  */
 getMessageType = (message) => {
     if (message.severity === 2) {
-        return "error";
+        return 'error';
     } else {
-        return "warning";
+        return 'warning';
     }
 };
 
@@ -17,18 +19,19 @@ getMessageType = (message) => {
  * @param {lintText~result} report
  * @returns {string}
  */
-getReportForFile =(report) => {
+getReportForFile = (report) => {
     let output;
 
     output = '';
     output += '<file name="' + report.filePath + '">';
 
-    output += report.messages.map((message) => {
+    output += _.map(report.messages, (message) => {
         return '<error line="' + message.line + '" ' +
             'column="' + message.column + '" ' +
             'severity="' + getMessageType(message) + '" ' +
+            'source="" ' +
             'message="[' + message.ruleId + '] ' + message.message + '" />';
-    }).join('\n');
+    }).join('');
 
     output += '</file>';
 
@@ -42,14 +45,14 @@ getReportForFile =(report) => {
 export default (report) => {
     let output;
 
-    output = "";
+    output = '';
 
-    output += '<?xml version="1.0" encoding="utf-8"?>\n';
-    output += '<checkstyle version="4.3">\n';
+    output += '<?xml version="1.0" encoding="utf-8"?>';
+    output += '<checkstyle version="4.3">';
 
-    output += report.results.map(getReportForFile).join('\n');
+    output += _.map(report.results, getReportForFile).join('');
 
-    output += "</checkstyle>";
+    output += '</checkstyle>';
 
     return output;
 };
