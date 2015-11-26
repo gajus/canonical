@@ -31,6 +31,7 @@ yargs
         outputFormat: {
             choices: [
                 'json',
+                'checkstyle',
                 'table'
             ],
             default: 'table'
@@ -106,7 +107,7 @@ outputReport = (report) => {
             warningCount: report.warningCount
         }, '', 4);
     } else {
-        formatter = getFormatter();
+        formatter = getFormatter(argv.outputFormat);
 
         if (argv.stdin) {
             output = formatter({
