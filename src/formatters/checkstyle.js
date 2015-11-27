@@ -1,31 +1,7 @@
 import _ from 'lodash';
+import builder from 'xmlbuilder';
 
-let getMessageType,
-    getReportForFile,
-    xmlEscape;
-
-/**
- * Returns the escaped value for a character
- *
- * @param {string} str string to examine
- * @returns {string}
- */
-xmlEscape = (str) => {
-    return (String(str)).replace(/[<>&"']/g, (char) => {
-        switch (char) {
-        case '<':
-            return '&lt;';
-        case '>':
-            return '&gt;';
-        case '&':
-            return '&amp;';
-        case '"':
-            return '&quot;';
-        case '\'':
-            return '&apos;';
-        }
-    });
-};
+let getMessageType;
 
 /**
  * @param {lintText~message} message
@@ -40,43 +16,43 @@ getMessageType = (message) => {
 };
 
 /**
- * @param {lintText~result} report
- * @returns {string}
- */
-getReportForFile = (report) => {
-    let output;
-
-    output = '';
-    output += '<file name="' + xmlEscape(report.filePath) + '">';
-
-    output += _.map(report.messages, (message) => {
-        return '<error line="' + xmlEscape(message.line) + '" ' +
-            'column="' + xmlEscape(message.column) + '" ' +
-            'severity="' + xmlEscape(getMessageType(message)) + '" ' +
-            'source="" ' +
-            'message="[' + xmlEscape(message.ruleId) + '] ' + xmlEscape(message.message) + ' "/>';
-    }).join('');
-
-    output += '</file>';
-
-    return output;
-};
-
-/**
+ * @see https://github.com/mila-labs/jshint-checkstyle-file-reporter
  * @param {lintFiles~report} report
  * @returns {string}
  */
 export default (report) => {
-    let output;
+    let xml;
 
-    output = '';
+    xml = builder
+        .create('checkstyle');
 
-    output += '<?xml version="1.0" encoding="utf-8"?>';
-    output += '<checkstyle version="4.3">';
+    xml.att('version', '4.3');
 
-    output += _.map(report.results, getReportForFile).join('');
+    _.forEach(report.results, (fileReport) => {
+        let fileNode;
 
-    output += '</checkstyle>';
+        if (!fileReport.messages.length) {
+            return;
+        }
 
-    return output;
+        fileNode = xml.ele('file', {
+            name: fileReport.filePath
+        });
+
+        _.forEach(fileReport.messages, (message) => {
+            fileNode.ele('error', {
+                line: message.line,
+                column: message.column,
+                severity: getMessageType(message),
+                source: '',
+                message: '[' + message.ruleId + '] ' + message.message
+            });
+        });
+    });
+
+    xml = xml.end({
+        pretty: true
+    });
+
+    return xml;
 };
