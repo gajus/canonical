@@ -31,9 +31,15 @@ yargs
         outputFormat: {
             choices: [
                 'json',
+                'checkstyle',
                 'table'
             ],
             default: 'table'
+        },
+        filePath: {
+            describe: 'Name of the file being linted with stdin (if any). Used in reporting',
+            type: 'string',
+            default: '<text>'
         }
     })
     .argv;
@@ -106,9 +112,10 @@ outputReport = (report) => {
             warningCount: report.warningCount
         }, '', 4);
     } else {
-        formatter = getFormatter();
+        formatter = getFormatter(argv.outputFormat);
 
         if (argv.stdin) {
+            report.filePath = argv.filePath;
             output = formatter({
                 results: [
                     report

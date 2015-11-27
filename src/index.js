@@ -1,7 +1,8 @@
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
-import formatter from './formatters/canonical';
+import tableFormatter from './formatters/canonical';
+import checkstyleFormatter from './formatters/checkstyle';
 
 import {
     lintText as lintJSText
@@ -23,10 +24,15 @@ linterMap = {
 };
 
 /**
+ * @param {string} name Default: table
  * @return {Function}
  */
-getFormatter = () => {
-    return formatter;
+getFormatter = (name) => {
+    if (name === 'checkstyle') {
+        return checkstyleFormatter;
+    }
+
+    return tableFormatter;
 };
 
 /**
