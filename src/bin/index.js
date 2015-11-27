@@ -28,6 +28,7 @@ process.on('unhandledRejection', (reason, promise) => {
 /* eslint-disable no-unused-expressions */
 yargs
 /* eslint-enable */
+    .help('help')
     .fail((message) => {
         /* eslint-disable no-console */
         console.log(chalk.red('Error'), message);
