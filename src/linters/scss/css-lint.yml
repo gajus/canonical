@@ -150,7 +150,7 @@ rules:
             - padding-top
             - padding-right
             - padding-bottom
-            - padding-left"
+            - padding-left
             - (group separator)
             - table-layout
             - empty-cells
