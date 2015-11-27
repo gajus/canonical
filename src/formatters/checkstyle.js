@@ -1,17 +1,30 @@
 import _ from 'lodash';
 
-let escapeString,
-    getMessageType,
-    getReportForFile;
+let getMessageType,
+    getReportForFile,
+    xmlEscape;
 
 /**
- * Escape quotes in the string for proper xml formatting.
+ * Returns the escaped value for a character
  *
- * @param {string} str
+ * @param {string} str string to examine
  * @returns {string}
  */
-escapeString = (str) => {
-    return str.replace(/"/g, '&quot;');
+xmlEscape = (str) => {
+    return (String(str)).replace(/[<>&"']/g, (char) => {
+        switch (char) {
+        case '<':
+            return '&lt;';
+        case '>':
+            return '&gt;';
+        case '&':
+            return '&amp;';
+        case '"':
+            return '&quot;';
+        case '\'':
+            return '&apos;';
+        }
+    });
 };
 
 /**
@@ -34,15 +47,15 @@ getReportForFile = (report) => {
     let output;
 
     output = '';
-    output += '<file name="' + report.filePath + '">';
+    output += '<file name="' + xmlEscape(report.filePath) + '">';
 
     output += _.map(report.messages, (message) => {
-        return '<error line="' + message.line + '" ' +
-            'column="' + message.column + '" ' +
-            'severity="' + getMessageType(message) + '" ' +
+        return '<error line="' + xmlEscape(message.line) + '" ' +
+            'column="' + xmlEscape(message.column) + '" ' +
+            'severity="' + xmlEscape(getMessageType(message)) + '" ' +
             'source="" ' +
-            'message="[' + message.ruleId + '] ' + escapeString(message.message) + ' "/>';
-    }).join();
+            'message="[' + xmlEscape(message.ruleId) + '] ' + xmlEscape(message.message) + ' "/>';
+    }).join('');
 
     output += '</file>';
 
@@ -61,7 +74,7 @@ export default (report) => {
     output += '<?xml version="1.0" encoding="utf-8"?>';
     output += '<checkstyle version="4.3">';
 
-    output += _.map(report.results, getReportForFile).join();
+    output += _.map(report.results, getReportForFile).join('');
 
     output += '</checkstyle>';
 
