@@ -1,7 +1,18 @@
 import _ from 'lodash';
 
-let getMessageType,
+let escapeString,
+    getMessageType,
     getReportForFile;
+
+/**
+ * Escape quotes in the string for proper xml formatting.
+ *
+ * @param {string} str
+ * @returns {string}
+ */
+escapeString = (str) => {
+    return str.replace(/"/g, '&quot;');
+};
 
 /**
  * @param {lintText~message} message
@@ -30,8 +41,8 @@ getReportForFile = (report) => {
             'column="' + message.column + '" ' +
             'severity="' + getMessageType(message) + '" ' +
             'source="" ' +
-            'message="[' + message.ruleId + '] ' + message.message + '" />';
-    }).join('');
+            'message="[' + message.ruleId + '] ' + escapeString(message.message) + ' "/>';
+    }).join();
 
     output += '</file>';
 
@@ -50,7 +61,7 @@ export default (report) => {
     output += '<?xml version="1.0" encoding="utf-8"?>';
     output += '<checkstyle version="4.3">';
 
-    output += _.map(report.results, getReportForFile).join('');
+    output += _.map(report.results, getReportForFile).join();
 
     output += '</checkstyle>';
 
