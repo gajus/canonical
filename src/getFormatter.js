@@ -5,7 +5,7 @@ import checkstyleFormatter from './formatters/checkstyle';
  * @param {string} name Default: table
  * @return {Function}
  */
-export default (name) => {
+export default (name = 'table') => {
     if (name === 'checkstyle') {
         return checkstyleFormatter;
     }
