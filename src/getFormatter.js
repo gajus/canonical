@@ -1,4 +1,4 @@
-import tableFormatter from './formatters/canonical';
+import tableFormatter from './formatters/table';
 import checkstyleFormatter from './formatters/checkstyle';
 
 /**

@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import table from 'table';
 import _ from 'lodash';
+import pluralize from 'pluralize';
 
 let drawReport,
     drawTable;
@@ -89,7 +90,7 @@ drawTable = (messages) => {
             }
         },
         drawHorizontalLine: (index) => {
-            return index === 1;
+            return true;
         }
     });
 };
@@ -113,6 +114,25 @@ export default (report) => {
     if (report.errorCount || report.warningCount) {
         result = drawReport(report.results);
     }
+
+    result += '\n' + table([
+        [
+            chalk.red(pluralize('Error', report.errorCount, true))
+        ],
+        [
+            chalk.yellow(pluralize('Warning', report.warningCount, true))
+        ]
+    ], {
+        columns: {
+            0: {
+                width: 110,
+                wrapWord: true
+            }
+        },
+        drawHorizontalLine: (index) => {
+            return true;
+        }
+    });
 
     return result;
 };
