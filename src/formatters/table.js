@@ -90,7 +90,7 @@ drawTable = (messages) => {
             }
         },
         drawHorizontalLine: (index) => {
-            return true;
+            return index === 1;
         }
     });
 };
