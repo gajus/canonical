@@ -29,6 +29,14 @@
     "build": "npm run pragmatist build",
     "watch": "npm run pragmatist watch"
   },
+  "bundledDependencies": [
+    "css-lint",
+    "eslint",
+    "eslint-config-canonical",
+    "eslint-config-canonical-jsdoc",
+    "eslint-config-canonical-lodash",
+    "eslint-config-canonical-react"
+  ],
   "dependencies": {
     "babel-eslint": "^4.1.6",
     "chalk": "^1.1.1",
