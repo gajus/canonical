@@ -45,7 +45,7 @@
     "eslint-config-canonical": "^1.2.8",
     "eslint-config-canonical-jsdoc": "^1.2.1",
     "eslint-config-canonical-lodash": "^1.0.1",
-    "eslint-config-canonical-react": "^1.2.2",
+    "eslint-config-canonical-react": "^1.2.3",
     "get-stdin": "^5.0.1",
     "globby": "^4.0.0",
     "lodash": "^3.10.1",
@@ -57,6 +57,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^1.6.1"
+    "pragmatist": "^1.9.2"
   }
 }
