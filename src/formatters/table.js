@@ -129,7 +129,7 @@ export default (report) => {
                 wrapWord: true
             }
         },
-        drawHorizontalLine: (index) => {
+        drawHorizontalLine: () => {
             return true;
         }
     });

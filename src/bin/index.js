@@ -59,7 +59,8 @@ yargs
             default: '<text>'
         },
         linter: {
-            demand: true,
+            // @todo This need to be true when using stdin.
+            demand: false,
             describe: 'The type of input.',
             choices: [
                 'js',
