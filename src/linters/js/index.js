@@ -2,16 +2,20 @@ import {
     CLIEngine
 } from 'eslint';
 
-import path from 'path';
-
 let cli,
     lintText;
 
 cli = new CLIEngine({
-    useElintrc: false,
-    // baseConfig: false,
-    parser: 'babel-eslint',
-    baseConfig: path.resolve(__dirname, './eslintrc.json')
+    configFile: require.resolve('./eslintrc.json'),
+    baseConfig: false,
+    rulePaths: [],
+    useEslintrc: false,
+    envs: [],
+    globals: [],
+    extensions: [],
+    parser: require.resolve('babel-eslint'),
+    fix: false,
+    allowInlineConfig: true
 });
 
 /**
@@ -19,8 +23,6 @@ cli = new CLIEngine({
  * @returns {string}
  */
 lintText = (text) => {
-    // console.log('cli.executeOnText(text).results[0]', cli.executeOnText(text).results[0]);
-
     return cli.executeOnText(text).results[0];
 };
 

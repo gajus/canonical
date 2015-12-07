@@ -41,7 +41,7 @@
     "babel-eslint": "^4.1.6",
     "chalk": "^1.1.1",
     "css-lint": "^1.0.1",
-    "eslint": "^1.10.2",
+    "eslint": "^1.10.3",
     "eslint-config-canonical": "^1.2.8",
     "eslint-config-canonical-jsdoc": "^1.2.1",
     "eslint-config-canonical-lodash": "^1.0.1",
@@ -52,11 +52,11 @@
     "pluralize": "^1.2.1",
     "table": "^3.7.4",
     "xmlbuilder": "^4.1.0",
-    "yargs": "^3.30.0"
+    "yargs": "^3.31.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^1.9.2"
+    "pragmatist": "^1.9.4"
   }
 }
