@@ -80,8 +80,8 @@ drawTable = (messages) => {
                 wrapWord: true
             },
             3: {
-                width: 50,
                 paddingRight: 5,
+                width: 50,
                 wrapWord: true
             },
             4: {

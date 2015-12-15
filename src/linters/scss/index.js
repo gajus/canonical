@@ -11,9 +11,9 @@ lintText = (text) => {
     let report;
 
     report = SassLinter.lintText({
-        text,
         filename: '<text>',
-        format: 'scss'
+        format: 'scss',
+        text
     }, {}, path.resolve(__dirname, './css-lint.yml'));
 
     return report;

@@ -40,10 +40,19 @@ yargs
     })
     .strict()
     .options({
-        stdin: {
-            describe: 'Used to indicate that subject body will be read from stdin.',
-            type: 'boolean',
-            default: false
+        'file-path': {
+            default: '<text>',
+            describe: 'Name of the file being linted with stdin (if any). Used in reporting.',
+            type: 'string'
+        },
+        linter: {
+            // @todo This need to be true when using stdin.
+            choices: [
+                'js',
+                'scss'
+            ],
+            demand: false,
+            describe: 'The type of input.'
         },
         'output-format': {
             choices: [
@@ -53,19 +62,10 @@ yargs
             ],
             default: 'table'
         },
-        'file-path': {
-            describe: 'Name of the file being linted with stdin (if any). Used in reporting.',
-            type: 'string',
-            default: '<text>'
-        },
-        linter: {
-            // @todo This need to be true when using stdin.
-            demand: false,
-            describe: 'The type of input.',
-            choices: [
-                'js',
-                'scss'
-            ]
+        stdin: {
+            default: false,
+            describe: 'Used to indicate that subject body will be read from stdin.',
+            type: 'boolean'
         }
     })
     .argv;
@@ -82,15 +82,15 @@ if (argv.stdin) {
             let report;
 
             report = lintText(stdin, {
-                linter: argv.linter,
-                filePath: argv.filePath
+                filePath: argv.filePath,
+                linter: argv.linter
             });
 
             outputReport({
+                errorCount: report.errorCount,
                 results: [
                     report
                 ],
-                errorCount: report.errorCount,
                 warningCount: report.warningCount
             }, argv.outputFormat);
         });

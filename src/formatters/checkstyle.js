@@ -41,11 +41,11 @@ export default (report) => {
 
         _.forEach(fileReport.messages, (message) => {
             fileNode.ele('error', {
-                line: message.line,
                 column: message.column,
+                line: message.line,
+                message: '[' + message.ruleId + '] ' + message.message,
                 severity: getMessageType(message),
-                source: '',
-                message: '[' + message.ruleId + '] ' + message.message
+                source: ''
             });
         });
     });

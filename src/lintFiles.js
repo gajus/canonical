@@ -7,8 +7,8 @@ import lintText from './lintText';
 let linterMap;
 
 linterMap = {
-    '.js': 'js',
     '.css': 'scss',
+    '.js': 'js',
     '.scss': 'scss'
 };
 

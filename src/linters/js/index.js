@@ -6,16 +6,16 @@ let cli,
     lintText;
 
 cli = new CLIEngine({
-    configFile: require.resolve('./eslintrc.json'),
+    allowInlineConfig: true,
     baseConfig: false,
-    rulePaths: [],
-    useEslintrc: false,
+    configFile: require.resolve('./eslintrc.json'),
     envs: [],
-    globals: [],
     extensions: [],
-    parser: require.resolve('babel-eslint'),
     fix: false,
-    allowInlineConfig: true
+    globals: [],
+    parser: require.resolve('babel-eslint'),
+    rulePaths: [],
+    useEslintrc: false
 });
 
 /**
