@@ -1,8 +1,8 @@
 <h1 id="canonical">Canonical</h1>
 
-<!-- [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat)](https://travis-ci.org/gajus/canonical) -->
-[![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat)](https://www.npmjs.com/package/canonical)
-[![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-brightgreen.svg?style=flat)](https://github.com/gajus/canonical)
+<!-- [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical) -->
+[![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat-square)](https://www.npmjs.com/package/canonical)
+[![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-brightgreen.svg?style=flat-square)](https://github.com/gajus/canonical)
 
 * [Canonical](#canonical)
     * [Badge](#canonical-badge)
