@@ -39,7 +39,7 @@
     "eslint-config-canonical-react"
   ],
   "dependencies": {
-    "babel-eslint": "^5.0.0-beta6",
+    "babel-eslint": "^4",
     "chalk": "^1.1.1",
     "css-lint": "^1.0.1",
     "eslint": "^1.10.3",
@@ -58,6 +58,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^2.3.2"
+    "pragmatist": "^2.3.3"
   }
 }
