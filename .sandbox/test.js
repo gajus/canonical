@@ -1,10 +1,11 @@
-import chalk from 'chalk';
-import test2 from './test.scss';
-import test from './test';
+let test;
 
-export let a;
-export let a;
-
-export default () => {
-    return <div></div>;
+/**
+ * @param {Number} foo
+ * @returns {String}
+ */
+test = () => {
+    return '';
 };
+
+test();
