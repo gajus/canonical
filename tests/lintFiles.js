@@ -16,8 +16,8 @@ describe('lintFiles', () => {
             report = lintFiles([]);
 
             expect(report).to.deep.equal({
-                results: [],
                 errorCount: 0,
+                results: [],
                 warningCount: 0
             });
         });

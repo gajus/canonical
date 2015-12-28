@@ -21,7 +21,7 @@ linterMap = {
 
 /**
  * @param {string[]} filePaths
- * @return {lintFiles~report}
+ * @returns {lintFiles~report}
  */
 export default (filePaths) => {
     let report;

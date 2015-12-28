@@ -1,11 +1,11 @@
 let test;
 
 /**
- * @param {Number} foo
- * @returns {String}
+ * @param {number} foo
+ * @returns {string}
  */
-test = () => {
-    return '';
+test = (foo : string = 'test') => {
+    return foo;
 };
 
 test();

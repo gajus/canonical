@@ -3,7 +3,7 @@ import checkstyleFormatter from './formatters/checkstyle';
 
 /**
  * @param {string} name Default: table
- * @return {Function}
+ * @returns {Function}
  */
 export default (name = 'table') => {
     if (name === 'checkstyle') {

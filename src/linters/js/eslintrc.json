@@ -1,9 +1,6 @@
 {
     "root": true,
     "extends": [
-        "canonical",
-        "canonical-react",
-        "canonical-jsdoc",
-        "canonical-lodash"
+        "/Users/gajus/Documents/dev/canonical-code-style/eslint-config-canonical/index.js"
     ]
 }

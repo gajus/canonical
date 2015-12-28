@@ -34,7 +34,7 @@ import {
 /**
  * @param {string} text
  * @param {lintText~options} options
- * @return {lintText~result}
+ * @returns {lintText~result}
  */
 export default (text, options) => {
     let result;
