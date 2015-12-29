@@ -61,6 +61,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^2.3.9"
+    "pragmatist": "^2.3.11"
   }
 }
