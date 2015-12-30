@@ -2,7 +2,7 @@
 
 <!-- [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical) -->
 [![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat-square)](https://www.npmjs.com/package/canonical)
-[![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-brightgreen.svg?style=flat-square)](https://github.com/gajus/canonical)
+[![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
 {"gitdown": "contents"}
 
