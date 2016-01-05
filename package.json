@@ -30,7 +30,8 @@
     "watch": "npm run pragmatist watch",
     "watch-lint": "npm run pragmatist watch-lint",
     "watch-test": "npm run pragmatist watch-test",
-    "watch-build": "npm run pragmatist watch-build"
+    "watch-build": "npm run pragmatist watch-build",
+    "shrinkpack": "shrinkpack"
   },
   "bundledDependencies": [
     "babel-eslint",
@@ -61,6 +62,7 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^2.3.64"
+    "pragmatist": "^2.3.64",
+    "shrinkpack": "^0.4.1"
   }
 }
