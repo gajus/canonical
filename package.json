@@ -35,12 +35,20 @@
   },
   "bundledDependencies": [
     "babel-eslint",
+    "chalk",
     "css-lint",
     "eslint",
     "eslint-config-canonical",
     "eslint-config-canonical-jsdoc",
     "eslint-config-canonical-lodash",
-    "eslint-config-canonical-react"
+    "eslint-config-canonical-react",
+    "get-stdin",
+    "globby",
+    "lodash",
+    "pluralize",
+    "table",
+    "xmlbuilder",
+    "yargs"
   ],
   "dependencies": {
     "babel-eslint": "^5.0.0-beta6",
@@ -62,7 +70,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "gitdown": "^2.4.0",
-    "pragmatist": "^2.3.64",
-    "shrinkpack": "^0.4.1"
+    "pragmatist": "^2.3.64"
   }
 }
