@@ -31,7 +31,8 @@
     "watch-lint": "npm run pragmatist watch-lint",
     "watch-test": "npm run pragmatist watch-test",
     "watch-build": "npm run pragmatist watch-build",
-    "bundle-dependencies": "bundled-dependencies"
+    "bundle-dependencies": "bundled-dependencies",
+    "bundle-publish": "npm run bundle-dependencies; rm -fr ./node_modules; npm install --production; git commit -a -m 'Bundled dependencies.'; npm version patch; npm publish; npm install"
   },
   "bundledDependencies": [
     "babel-eslint",
