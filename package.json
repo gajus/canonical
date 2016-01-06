@@ -1,75 +1,76 @@
 {
-  "name": "canonical",
-  "description": "Canonical code style linter and formatter for JavaScript, SCSS and CSS.",
-  "main": "./dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gajus/canonical"
-  },
-  "keywords": [
-    "eslint",
-    "scss-lint",
-    "scss",
-    "css",
-    "lint"
-  ],
-  "bin": "./dist/bin/index.js",
-  "version": "2.7.10",
-  "author": {
-    "name": "Gajus Kuizinas",
-    "email": "gk@anuary.com",
-    "url": "http://gajus.com"
-  },
-  "license": "BSD-3-Clause",
-  "scripts": {
-    "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
-    "pragmatist": "node ./node_modules/.bin/pragmatist --browser",
-    "lint": "npm run pragmatist lint",
-    "test": "npm run pragmatist test",
-    "build": "npm run pragmatist build",
-    "watch": "npm run pragmatist watch",
-    "watch-lint": "npm run pragmatist watch-lint",
-    "watch-test": "npm run pragmatist watch-test",
-    "watch-build": "npm run pragmatist watch-build",
-    "shrinkpack": "shrinkpack"
-  },
-  "bundledDependencies": [
-    "babel-eslint",
-    "chalk",
-    "css-lint",
-    "eslint",
-    "eslint-config-canonical",
-    "eslint-config-canonical-jsdoc",
-    "eslint-config-canonical-lodash",
-    "eslint-config-canonical-react",
-    "get-stdin",
-    "globby",
-    "lodash",
-    "pluralize",
-    "table",
-    "xmlbuilder",
-    "yargs"
-  ],
-  "dependencies": {
-    "babel-eslint": "^5.0.0-beta6",
-    "chalk": "^1.1.1",
-    "css-lint": "^1.0.1",
-    "eslint": "^1.10.3",
-    "eslint-config-canonical": "^1.4.3",
-    "eslint-config-canonical-jsdoc": "^1.2.10",
-    "eslint-config-canonical-lodash": "^1.0.2",
-    "eslint-config-canonical-react": "^1.2.4",
-    "get-stdin": "^5.0.1",
-    "globby": "^4.0.0",
-    "lodash": "^3.10.1",
-    "pluralize": "^1.2.1",
-    "table": "^3.7.4",
-    "xmlbuilder": "^4.2.0",
-    "yargs": "^3.31.0"
-  },
-  "devDependencies": {
-    "chai": "^3.4.1",
-    "gitdown": "^2.4.0",
-    "pragmatist": "^2.3.67"
-  }
+    "name": "canonical",
+    "description": "Canonical code style linter and formatter for JavaScript, SCSS and CSS.",
+    "main": "./dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gajus/canonical"
+    },
+    "keywords": [
+        "eslint",
+        "scss-lint",
+        "scss",
+        "css",
+        "lint"
+    ],
+    "bin": "./dist/bin/index.js",
+    "version": "2.7.10",
+    "author": {
+        "name": "Gajus Kuizinas",
+        "email": "gk@anuary.com",
+        "url": "http://gajus.com"
+    },
+    "license": "BSD-3-Clause",
+    "scripts": {
+        "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
+        "pragmatist": "node ./node_modules/.bin/pragmatist --browser",
+        "lint": "npm run pragmatist lint",
+        "test": "npm run pragmatist test",
+        "build": "npm run pragmatist build",
+        "watch": "npm run pragmatist watch",
+        "watch-lint": "npm run pragmatist watch-lint",
+        "watch-test": "npm run pragmatist watch-test",
+        "watch-build": "npm run pragmatist watch-build",
+        "bundle-dependencies": "bundled-dependencies"
+    },
+    "bundledDependencies": [
+        "babel-eslint",
+        "chalk",
+        "css-lint",
+        "eslint",
+        "eslint-config-canonical",
+        "eslint-config-canonical-jsdoc",
+        "eslint-config-canonical-lodash",
+        "eslint-config-canonical-react",
+        "get-stdin",
+        "globby",
+        "lodash",
+        "pluralize",
+        "table",
+        "xmlbuilder",
+        "yargs"
+    ],
+    "dependencies": {
+        "babel-eslint": "^5.0.0-beta6",
+        "chalk": "^1.1.1",
+        "css-lint": "^1.0.1",
+        "eslint": "^1.10.3",
+        "eslint-config-canonical": "^1.4.3",
+        "eslint-config-canonical-jsdoc": "^1.2.10",
+        "eslint-config-canonical-lodash": "^1.0.2",
+        "eslint-config-canonical-react": "^1.2.4",
+        "get-stdin": "^5.0.1",
+        "globby": "^4.0.0",
+        "lodash": "^3.10.1",
+        "pluralize": "^1.2.1",
+        "table": "^3.7.4",
+        "xmlbuilder": "^4.2.0",
+        "yargs": "^3.31.0"
+    },
+    "devDependencies": {
+        "bundled-dependencies": "^2.1.0",
+        "chai": "^3.4.1",
+        "gitdown": "^2.4.0",
+        "pragmatist": "^2.3.67"
+    }
 }
