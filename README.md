@@ -6,6 +6,7 @@
 
 * [Canonical](#canonical)
     * [Badge](#canonical-badge)
+    * [Rules](#canonical-rules)
     * [Usage](#canonical-usage)
         * [Command Line](#canonical-usage-command-line)
         * [Gulp](#canonical-usage-gulp)
@@ -24,6 +25,15 @@ Use this in one of your projects? Include one of these badges in your README to 
 [![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 ```
 
+
+<h2 id="canonical-rules">Rules</h2>
+
+Canonical rules are composed of the following packages:
+
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical]
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-jsdoc]
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-lodash]
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-react]
 
 <h2 id="canonical-usage">Usage</h2>
 
