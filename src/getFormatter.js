@@ -2,7 +2,7 @@ import tableFormatter from './formatters/table';
 import checkstyleFormatter from './formatters/checkstyle';
 
 /**
- * @param {string} name Default: table
+ * @param {string} name Name of the style (Default: table).
  * @returns {Function}
  */
 export default (name = 'table') => {

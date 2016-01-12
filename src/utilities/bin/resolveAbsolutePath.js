@@ -1,7 +1,7 @@
 import path from 'path';
 
 /**
- * @param {string} relativePath Path relative to the process.cwd()
+ * @param {string} relativePath Path relative to the process.cwd().
  * @returns {string} Absolute path.
  */
 export default (relativePath) => {
