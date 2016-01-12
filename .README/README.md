@@ -14,10 +14,10 @@ Canonical code style linter and formatter for JavaScript, SCSS and CSS.
 
 Canonical rules are composed of the following packages:
 
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-jsdoc]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-lodash]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-react]
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-jsdoc)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-lodash)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-react)
 
 ## Usage
 

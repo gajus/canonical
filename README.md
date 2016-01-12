@@ -30,10 +30,10 @@ Use this in one of your projects? Include one of these badges in your README to 
 
 Canonical rules are composed of the following packages:
 
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-jsdoc]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-lodash]
-* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-react]
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-jsdoc)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-lodash)
+* [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical-react)
 
 <h2 id="canonical-usage">Usage</h2>
 
