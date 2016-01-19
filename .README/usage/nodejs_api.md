@@ -2,15 +2,60 @@
 
 ```js
 import {
+    fixFiles,
+    fixText,
     getFormatter,
-    lintText,
-    lintFile
+    lintFiles,
+    lintText
 } from 'canonical';
 
 /**
  * @returns {function}
  */
 getFormatter;
+
+/**
+ * @typedef fixFiles~report
+ * @property {fixText~result[]} results
+ */
+
+/**
+ * @param {string[]} filePaths
+ * @return {fixFiles~report}
+ */
+
+fixFiles;
+
+/**
+ * @typedef fixText~result
+ * @property {string} filePath
+ * @property {string} output
+ */
+
+/**
+ * @typedef fixText~options
+ * @property {string} syntax (supported languages: 'js', 'css', 'scss').
+ */
+
+/**
+ * @param {string} text
+ * @param {fixText~options} options
+ * @return {fixText~result}
+ */
+fixText;
+
+/**
+ * @typedef lintFiles~report
+ * @property {lintText~result[]} results
+ * @property {number} errorCount
+ * @property {number} warningCount
+ */
+
+/**
+ * @param {string[]} filePaths
+ * @return {lintFiles~report}
+ */
+lintFiles;
 
 /**
  * @typedef lintText~message
@@ -33,7 +78,7 @@ getFormatter;
 
 /**
  * @typedef lintText~options
- * @property {string} language (supported languages: 'js', 'scss').
+ * @property {string} syntax (supported languages: 'js', 'css', 'scss').
  */
 
 /**
@@ -42,17 +87,4 @@ getFormatter;
  * @return {lintText~result}
  */
 lintText;
-
-/**
- * @typedef lintFiles~report
- * @property {lintText~result[]} results
- * @property {number} errorCount
- * @property {number} warningCount
- */
-
-/**
- * @param {string[]} filePaths
- * @return {lintFiles~report}
- */
-lintFiles;
 ```

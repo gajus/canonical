@@ -1,18 +1,15 @@
-'create index';
-
-import bin from './bin';
-import formatters from './formatters';
-import getFormatter from './getFormatter.js';
-import lintFiles from './lintFiles.js';
-import lintText from './lintText.js';
-import linters from './linters';
-
-export {
-    bin,
-    formatters,
+import {
+    fixFiles,
+    fixText,
     getFormatter,
     lintFiles,
-    lintText,
-    linters
-};
+    lintText
+} from './utilities';
 
+export {
+    fixFiles,
+    fixText,
+    getFormatter,
+    lintFiles,
+    lintText
+};

@@ -45,45 +45,83 @@ The easiest way to use Canonical to check your code style is to install it as a 
 npm install canonical -g
 ```
 
-After that, you can run `canonical` program on any JavaScript, SCSS or CSS file:
+After that, you can run `canonical` program on any JavaScript, SCSS or CSS file.
+
+<h4 id="canonical-usage-command-line-linting">Linting</h4>
 
 ```sh
 # Lint all JavaScript in ./src/ directory.
-canonical ./src/**/*.js
+canonical lint ./src/**/*.js
 
 # Lint all CSS in ./src/ directory.
-canonical ./src/**/*.css
+canonical lint ./src/**/*.css
 
 # Lint all JavaScript and CSS in ./src/ directory.
-canonical ./src/**/*.js ./src/**/*.css
+canonical lint ./src/**/*.js ./src/**/*.css
 
 # List all supported formats in ./src/ and the descending directories.
-canonical ./src/
+canonical lint ./src/
 ```
 
-<h4 id="canonical-usage-command-line-reading-from-stdin">Reading from Stdin</h4>
+<h4 id="canonical-usage-command-line-fixing">Fixing</h4>
+
+```sh
+# Fix all JavaScript in ./src/ directory.
+canonical fix ./src/**/*.js
+
+# Fix all CSS in ./src/ directory.
+canonical fix ./src/**/*.css
+
+# Fix all JavaScript and CSS in ./src/ directory.
+canonical fix ./src/**/*.js ./src/**/*.css
+
+# Fix all supported formats in ./src/ and the descending directories.
+canonical fix ./src/
+```
+
+<h4 id="canonical-usage-command-line-reading-from-stdin">Reading from <code>stdin</code></h4>
 
 `canonical` program can read from stdin, e.g.
 
 ```
-echo 'var test;' | canonical --stdin --linter js --output-format json
+echo 'var test;' | canonical lint --stdin --syntax js --output-format json
 ```
 
-When reading from stdin, it is required to provide `--linter` option. See [Command Line Options](#command-line-options).
+When reading from `stdin`, it is required to provide `--syntax` option. See [Command Line Options](#command-line-options).
 
 <h4 id="canonical-usage-command-line-command-line-options">Command Line Options</h4>
 
 ```
+> canonical --help
+
+Commands:
+  fix   Fix code format.
+  lint  Report code format errors.
+
+Options:
+  --help  Show help                                                    [boolean]
+```
+
+```
+canonical fix --help
+
+Options:
+  --help    Show help                                                  [boolean]
+  --stdin   Used to indicate that subject body will be read from stdin.
+                                                      [boolean] [default: false]
+  --syntax  Syntax of the input.                  [choices: "js", "css", "scss"]
+```
+
+```
+canonical lint --help
+
 Options:
   --help           Show help                                           [boolean]
   --file-path      Name of the file being linted with stdin (if any). Used in
                    reporting.                       [string] [default: "<text>"]
-  --fix            Used to automatically fix linting issues when possible. Works
-                   only when linting target is a file (does not work with stdin
-                   input).                            [boolean] [default: false]
-  --linter         The type of input.                    [choices: "js", "scss"]
   --stdin          Used to indicate that subject body will be read from stdin.
                                                       [boolean] [default: false]
+  --syntax         Syntax of the input.           [choices: "js", "css", "scss"]
   --output-format    [choices: "json", "checkstyle", "table"] [default: "table"]
 ```
 

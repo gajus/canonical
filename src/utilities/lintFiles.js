@@ -3,14 +3,7 @@ import fs from 'fs';
 import _ from 'lodash';
 
 import lintText from './lintText';
-
-let linterMap;
-
-linterMap = {
-    '.css': 'scss',
-    '.js': 'js',
-    '.scss': 'scss'
-};
+import syntaxMap from './../syntaxMap';
 
 /**
  * @typedef lintFiles~report
@@ -38,13 +31,13 @@ export default (filePaths) => {
 
         extensionName = path.extname(filePath);
 
-        if (linterMap[extensionName]) {
+        if (syntaxMap[extensionName]) {
             text = fs.readFileSync(filePath, {
                 encoding: 'utf8'
             });
 
             result = lintText(text, {
-                linter: linterMap[extensionName]
+                syntax: syntaxMap[extensionName]
             });
 
             result.filePath = filePath;
@@ -54,7 +47,7 @@ export default (filePaths) => {
             report.warningCount += result.warningCount;
         } else {
             /* eslint-disable no-console */
-            console.warn('Ignoring file "' + filePath + '". No linter mapped to "' + extensionName + '" extension.');
+            console.warn('Ignoring file "' + filePath + '". No syntax mapped to "' + extensionName + '" extension.');
             /* eslint-enable no-console */
         }
     });

@@ -4,7 +4,7 @@
     "name": "Gajus Kuizinas",
     "url": "http://gajus.com"
   },
-  "bin": "./dist/bin/index.js",
+  "bin": "./dist/bin/canonical.js",
   "bundledDependencies": [
     "babel-eslint",
     "chalk",
@@ -43,10 +43,11 @@
   "devDependencies": {
     "bundled-dependencies": "^2.1.0",
     "chai": "^3.4.1",
-    "create-index": "0.0.2",
+    "create-index": "^0.0.2",
     "gitdown": "^2.4.0",
     "jsonlint": "^1.6.2",
-    "pragmatist": "^3.0.2"
+    "pragmatist": "^3.0.2",
+    "tmp": "0.0.28"
   },
   "keywords": [
     "eslint",
@@ -66,7 +67,7 @@
     "build": "npm run pragmatist build",
     "bundle-dependencies": "bundled-dependencies",
     "bundle-publish": "npm run bundle-dependencies; rm -fr ./node_modules; npm install --production; git commit -a -m 'Bundled dependencies.'; npm version patch; npm publish; npm install; git push",
-    "create-index": "create-index ./src ./src/formatters ./src/linters ./src/utilities/bin",
+    "create-index": "create-index ./src/bin/commands ./src/formatters ./src/utilities ./src/utilities/bin ./src/syntaxes/js ./src/syntaxes/scss",
     "format-json": "jsonlint --sort-keys --in-place --indent '    ' ./package.json",
     "lint": "npm run pragmatist lint",
     "pragmatist": "pragmatist --es5",

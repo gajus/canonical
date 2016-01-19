@@ -1,10 +1,10 @@
 'create index';
 
-import checkstyle from './checkstyle.js';
-import table from './table.js';
+import checkstyleFormatter from './checkstyleFormatter.js';
+import tableFormatter from './tableFormatter.js';
 
 export {
-    checkstyle,
-    table
+    checkstyleFormatter,
+    tableFormatter
 };
 

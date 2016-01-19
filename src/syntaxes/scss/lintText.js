@@ -1,13 +1,11 @@
 import SassLinter from 'css-lint';
 import path from 'path';
 
-let lintText;
-
 /**
  * @param {string} text
  * @returns {string}
  */
-lintText = (text) => {
+export default (text) => {
     let report;
 
     report = SassLinter.lintText({
@@ -17,8 +15,4 @@ lintText = (text) => {
     }, {}, path.resolve(__dirname, './css-lint.yml'));
 
     return report;
-};
-
-export {
-    lintText
 };

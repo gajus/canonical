@@ -2,8 +2,7 @@ import {
     CLIEngine
 } from 'eslint';
 
-let cli,
-    lintText;
+let cli;
 
 cli = new CLIEngine({
     allowInlineConfig: true,
@@ -18,14 +17,6 @@ cli = new CLIEngine({
     useEslintrc: false
 });
 
-/**
- * @param {string} text
- * @returns {string}
- */
-lintText = (text) => {
+export default (text: string) => {
     return cli.executeOnText(text).results[0];
-};
-
-export {
-    lintText
 };

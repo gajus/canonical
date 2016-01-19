@@ -3,12 +3,9 @@ import glob from 'globby';
 import resolveAbsolutePath from './resolveAbsolutePath';
 
 /**
- * Uses glob to resolve all file paths recursively.
- *
- * @param {string[]} searchPaths
- * @returns {string[]}
+ * Resolve an array of glob paths.
  */
-export default (searchPaths) => {
+export default (searchPaths: Array<string>): Array<string> => {
     let appendPaths,
         paths;
 
@@ -41,11 +38,7 @@ export default (searchPaths) => {
     // @todo Test whether glob.sync can return non-unique file paths.
     // paths = _.unique(paths);
 
-    // console.log('paths', paths);
-
     paths = _.map(paths, resolveAbsolutePath);
-
-    // console.log('paths', paths);
 
     return paths;
 };

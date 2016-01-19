@@ -18,7 +18,7 @@ drawReport = (results) => {
             return '';
         }
 
-        return '\n' + result.filePath + '\n\n' + drawTable(result.messages);
+        return result.filePath + '\n\n' + drawTable(result.messages);
     });
 
     files = _.filter(files);

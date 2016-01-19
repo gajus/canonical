@@ -1,10 +1,10 @@
 import {
     lintText as lintJSText
-} from './linters/js';
+} from './../syntaxes/js';
 
 import {
     lintText as lintSCSSText
-} from './linters/scss';
+} from './../syntaxes/scss';
 
 /**
  * @typedef lintText~message
@@ -26,25 +26,30 @@ import {
  */
 
 /**
- * @typedef lintText~options
- * @property {string} linter (supported linters: 'js', 'scss').
- * @property {string} filePath (optional) (default: '<text>')
+ * @property syntax Supported syntaxes: 'js', 'css', 'scss'.
+ * @property filePath (optional) (default: '<text>')
  */
+type OptionsType = {
+    syntax: string,
+    filePath: string
+};
 
 /**
  * @param {string} text
  * @param {lintText~options} options
  * @returns {lintText~result}
  */
-export default (text, options) => {
+export default (text: string, options: OptionsType): Object => {
     let result;
 
-    if (options.linter === 'js') {
+    if (options.syntax === 'js') {
         result = lintJSText(text);
-    } else if (options.linter === 'scss') {
+    } else if (options.syntax === 'css') {
+        result = lintSCSSText(text);
+    } else if (options.syntax === 'scss') {
         result = lintSCSSText(text);
     } else {
-        throw new Error('Unknown linter "' + options.linter + '".');
+        throw new Error('Unknown syntax "' + options.syntax + '".');
     }
 
     if (options.filePath) {
