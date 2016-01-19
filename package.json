@@ -33,11 +33,11 @@
         "eslint-config-canonical-react": "^1.2.5",
         "get-stdin": "^5.0.1",
         "globby": "^4.0.0",
-        "lodash": "^3.10.1",
+        "lodash": "^4.0.0",
         "pluralize": "^1.2.1",
-        "table": "^3.7.4",
-        "xmlbuilder": "^4.2.0",
-        "yargs": "^3.31.0"
+        "table": "^3.7.6",
+        "xmlbuilder": "^4.2.1",
+        "yargs": "^3.32.0"
     },
     "description": "Canonical code style linter and formatter for JavaScript, SCSS and CSS.",
     "devDependencies": {
@@ -45,7 +45,7 @@
         "chai": "^3.4.1",
         "gitdown": "^2.4.0",
         "jsonlint": "^1.6.2",
-        "pragmatist": "^2.3.71"
+        "pragmatist": "^3.0.2"
     },
     "keywords": [
         "eslint",
@@ -67,7 +67,7 @@
         "bundle-publish": "npm run bundle-dependencies; rm -fr ./node_modules; npm install --production; git commit -a -m 'Bundled dependencies.'; npm version patch; npm publish; npm install; git push",
         "format-json": "jsonlint --sort-keys --in-place --indent '    ' ./package.json",
         "lint": "npm run pragmatist lint",
-        "pragmatist": "node ./node_modules/.bin/pragmatist --browser",
+        "pragmatist": "pragmatist --es5",
         "preversion": "npm run format-json",
         "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
         "test": "npm run pragmatist test",
