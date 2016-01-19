@@ -6,7 +6,7 @@ The easiest way to use Canonical to check your code style is to install it as a 
 npm install canonical -g
 ```
 
-After that, you can run `canonical` program on any JavaScript, SCSS or CSS file.
+After that, you can run `canonical` program on any JavaScript, SCSS, CSS or JSON file.
 
 #### Linting
 
@@ -70,7 +70,7 @@ Options:
   --help    Show help                                                  [boolean]
   --stdin   Used to indicate that subject body will be read from stdin.
                                                       [boolean] [default: false]
-  --syntax  Syntax of the input.                  [choices: "js", "css", "scss"]
+  --syntax  Syntax of the input.          [choices: "js", "json", "css", "scss"]
 ```
 
 ```
@@ -82,6 +82,6 @@ Options:
                    reporting.                       [string] [default: "<text>"]
   --stdin          Used to indicate that subject body will be read from stdin.
                                                       [boolean] [default: false]
-  --syntax         Syntax of the input.           [choices: "js", "css", "scss"]
+  --syntax         Syntax of the input.   [choices: "js", "json", "css", "scss"]
   --output-format    [choices: "json", "checkstyle", "table"] [default: "table"]
 ```

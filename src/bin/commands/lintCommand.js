@@ -89,8 +89,9 @@ export default () => {
             syntax: {
                 // @todo This need to be true when using stdin.
                 choices: [
-                    'js',
                     'css',
+                    'js',
+                    'json',
                     'scss'
                 ],
                 demand: false,

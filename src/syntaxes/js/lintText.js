@@ -17,6 +17,6 @@ cli = new CLIEngine({
     useEslintrc: false
 });
 
-export default (text: string) => {
+export default (text: string): Object => {
     return cli.executeOnText(text).results[0];
 };

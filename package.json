@@ -39,11 +39,12 @@
     "xmlbuilder": "^4.2.1",
     "yargs": "^3.32.0"
   },
-  "description": "Canonical code style linter and formatter for JavaScript, SCSS and CSS.",
+  "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
   "devDependencies": {
     "bundled-dependencies": "^2.1.0",
     "chai": "^3.4.1",
     "create-index": "^0.0.2",
+    "deep-sort-object": "^1.0.1",
     "gitdown": "^2.4.0",
     "jsonlint": "^1.6.2",
     "pragmatist": "^3.0.2",

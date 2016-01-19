@@ -1,53 +1,52 @@
 import {
-    lintText as lintJSText
+    lintText as lintCssText
+} from './../syntaxes/scss';
+
+import {
+    lintText as lintJsText
 } from './../syntaxes/js';
 
 import {
-    lintText as lintSCSSText
+    lintText as lintJsonText
+} from './../syntaxes/json';
+
+import {
+    lintText as lintScssText
 } from './../syntaxes/scss';
 
-/**
- * @typedef lintText~message
- * @property {string} ruleId
- * @property {number} severity
- * @property {string} message
- * @property {number} line
- * @property {number} column
- * @property {string} nodeType
- * @property {string} source
- */
+type MessageType = {
+    ruleId: string,
+    severity: number,
+    message: string,
+    line: number,
+    column: number,
+    nodeType: string,
+    source: string
+};
 
-/**
- * @typedef lintText~result
- * @property {string} filePath
- * @property {lintFiles~message[]} messages
- * @property {number} errorCount
- * @property {number} warningCount
- */
+type LintTextResult = {
+    filePath: string,
+    messages: Array<MessageType>,
+    errorCount: number,
+    warningCount: number
+};
 
-/**
- * @property syntax Supported syntaxes: 'js', 'css', 'scss'.
- * @property filePath (optional) (default: '<text>')
- */
 type OptionsType = {
     syntax: string,
     filePath: string
 };
 
-/**
- * @param {string} text
- * @param {lintText~options} options
- * @returns {lintText~result}
- */
-export default (text: string, options: OptionsType): Object => {
+export default (text: string, options: OptionsType): LintTextResult => {
     let result;
 
-    if (options.syntax === 'js') {
-        result = lintJSText(text);
-    } else if (options.syntax === 'css') {
-        result = lintSCSSText(text);
+    if (options.syntax === 'css') {
+        result = lintCssText(text);
+    } else if (options.syntax === 'js') {
+        result = lintJsText(text);
+    } else if (options.syntax === 'json') {
+        result = lintJsonText(text);
     } else if (options.syntax === 'scss') {
-        result = lintSCSSText(text);
+        result = lintScssText(text);
     } else {
         throw new Error('Unknown syntax "' + options.syntax + '".');
     }

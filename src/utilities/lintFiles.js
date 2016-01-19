@@ -5,18 +5,13 @@ import _ from 'lodash';
 import lintText from './lintText';
 import syntaxMap from './../syntaxMap';
 
-/**
- * @typedef lintFiles~report
- * @property {lintText~result[]} results
- * @property {number} errorCount
- * @property {number} warningCount
- */
+type LintFilesReportType = {
+    results: Array,
+    errorCount: number,
+    warningCount: number
+};
 
-/**
- * @param {string[]} filePaths
- * @returns {lintFiles~report}
- */
-export default (filePaths) => {
+export default (filePaths: Array<string>): LintFilesReportType => {
     let report;
 
     report = {};

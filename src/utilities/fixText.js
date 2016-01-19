@@ -1,14 +1,19 @@
 import {
-    fixText as fixJSText
+    fixText as fixCssText
+} from './../syntaxes/scss';
+
+import {
+    fixText as fixJsText
 } from './../syntaxes/js';
 
 import {
-    fixText as fixSCSSText
+    fixText as fixJsonText
+} from './../syntaxes/json';
+
+import {
+    fixText as fixScssText
 } from './../syntaxes/scss';
 
-/**
- * @property syntax Supported syntaxes: 'js', 'css', 'scss'.
- */
 type OptionsType = {
     syntax: string
 };
@@ -16,14 +21,14 @@ type OptionsType = {
 export default (text: string, options: OptionsType = {}): string => {
     let result;
 
-    options.syntax = options.syntax || null;
-
-    if (options.syntax === 'js') {
-        result = fixJSText(text);
-    } else if (options.syntax === 'css') {
-        result = fixSCSSText(text);
+    if (options.syntax === 'css') {
+        result = fixCssText(text);
+    } else if (options.syntax === 'js') {
+        result = fixJsText(text);
+    } else if (options.syntax === 'json') {
+        result = fixJsonText(text);
     } else if (options.syntax === 'scss') {
-        result = fixSCSSText(text);
+        result = fixScssText(text);
     } else {
         throw new Error('Unknown syntax "' + options.syntax + '".');
     }

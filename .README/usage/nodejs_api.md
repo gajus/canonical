@@ -34,7 +34,7 @@ fixFiles;
 
 /**
  * @typedef fixText~options
- * @property {string} syntax (supported languages: 'js', 'css', 'scss').
+ * @property {string} syntax (supported languages: 'css', 'js', 'json', 'scss').
  */
 
 /**
@@ -78,7 +78,7 @@ lintFiles;
 
 /**
  * @typedef lintText~options
- * @property {string} syntax (supported languages: 'js', 'css', 'scss').
+ * @property {string} syntax (supported languages: 'css', 'js', 'json', 'scss').
  */
 
 /**
