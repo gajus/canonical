@@ -1,6 +1,6 @@
 import {
     getFormatter
-} from './../../';
+} from './../..';
 
 /**
  * @param {Object} report

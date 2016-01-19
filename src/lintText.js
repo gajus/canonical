@@ -1,10 +1,10 @@
 import {
     lintText as lintJSText
-} from './linters/js/';
+} from './linters/js';
 
 import {
     lintText as lintSCSSText
-} from './linters/scss/';
+} from './linters/scss';
 
 /**
  * @typedef lintText~message

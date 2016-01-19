@@ -4,16 +4,19 @@ import getStdin from 'get-stdin';
 import chalk from 'chalk';
 
 import {
+    fixFiles,
     lintFiles,
     lintText
-} from './../';
+} from './..';
 
 import yargs, {
     argv
 } from 'yargs';
 
-import getTargetPaths from './../utilities/bin/getTargetPaths';
-import outputReport from './../utilities/bin/outputReport';
+import {
+    getTargetPaths,
+    outputReport
+} from './../utilities/bin';
 
 let targetPaths;
 
@@ -82,6 +85,10 @@ if (argv.stdin) {
         .demand(0, 0)
         .argv;
 
+    if (argv.fix) {
+        throw new Error('--fix option cannot be used with stdin input.');
+    }
+
     getStdin()
         .then((stdin) => {
             let report;
@@ -109,6 +116,10 @@ if (argv.stdin) {
         .argv;
 
     targetPaths = getTargetPaths(argv._);
+
+    if (argv.fix) {
+        fixFiles(targetPaths);
+    }
 
     report = lintFiles(targetPaths);
 
