@@ -37,10 +37,13 @@ When reading from stdin, it is required to provide `--linter` option. See [Comma
 ```
 Options:
   --help           Show help                                           [boolean]
-  --stdin          Used to indicate that subject body will be read from stdin.
-                                                      [boolean] [default: false]
   --file-path      Name of the file being linted with stdin (if any). Used in
                    reporting.                       [string] [default: "<text>"]
-  --linter         The type of input.         [required] [choices: "js", "scss"]
+  --fix            Used to automatically fix linting issues when possible. Works
+                   only when linting target is a file (does not work with stdin
+                   input).                            [boolean] [default: false]
+  --linter         The type of input.                    [choices: "js", "scss"]
+  --stdin          Used to indicate that subject body will be read from stdin.
+                                                      [boolean] [default: false]
   --output-format    [choices: "json", "checkstyle", "table"] [default: "table"]
 ```

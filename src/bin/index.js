@@ -45,6 +45,11 @@ yargs
             describe: 'Name of the file being linted with stdin (if any). Used in reporting.',
             type: 'string'
         },
+        fix: {
+            default: false,
+            describe: 'Used to automatically fix linting issues when possible. Works only when linting target is a file (does not work with stdin input).',
+            type: 'boolean'
+        },
         linter: {
             // @todo This need to be true when using stdin.
             choices: [

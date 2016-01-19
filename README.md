@@ -1,6 +1,6 @@
 <h1 id="canonical">Canonical</h1>
 
-<!-- [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical) -->
+[![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical)
 [![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat-square)](https://www.npmjs.com/package/canonical)
 [![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
@@ -25,7 +25,6 @@ Use this in one of your projects? Include one of these badges in your README to 
 [![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 ```
 
-
 <h2 id="canonical-rules">Rules</h2>
 
 Canonical rules are composed of the following packages:
@@ -34,6 +33,7 @@ Canonical rules are composed of the following packages:
 * [`eslint-config-canonical-jsdoc`](https://github.com/gajus/eslint-config-canonical-jsdoc)
 * [`eslint-config-canonical-lodash`](https://github.com/gajus/eslint-config-canonical-lodash)
 * [`eslint-config-canonical-react`](https://github.com/gajus/eslint-config-canonical-react)
+
 
 <h2 id="canonical-usage">Usage</h2>
 
@@ -76,11 +76,14 @@ When reading from stdin, it is required to provide `--linter` option. See [Comma
 ```
 Options:
   --help           Show help                                           [boolean]
-  --stdin          Used to indicate that subject body will be read from stdin.
-                                                      [boolean] [default: false]
   --file-path      Name of the file being linted with stdin (if any). Used in
                    reporting.                       [string] [default: "<text>"]
-  --linter         The type of input.         [required] [choices: "js", "scss"]
+  --fix            Used to automatically fix linting issues when possible. Works
+                   only when linting target is a file (does not work with stdin
+                   input).                            [boolean] [default: false]
+  --linter         The type of input.                    [choices: "js", "scss"]
+  --stdin          Used to indicate that subject body will be read from stdin.
+                                                      [boolean] [default: false]
   --output-format    [choices: "json", "checkstyle", "table"] [default: "table"]
 ```
 
