@@ -45,7 +45,7 @@ The easiest way to use Canonical to check your code style is to install it as a 
 npm install canonical -g
 ```
 
-After that, you can run `canonical` program on any JavaScript, SCSS or CSS file.
+After that, you can run `canonical` program on any JavaScript, SCSS, CSS or JSON file.
 
 <h4 id="canonical-usage-command-line-linting">Linting</h4>
 
@@ -109,7 +109,7 @@ Options:
   --help    Show help                                                  [boolean]
   --stdin   Used to indicate that subject body will be read from stdin.
                                                       [boolean] [default: false]
-  --syntax  Syntax of the input.                  [choices: "js", "css", "scss"]
+  --syntax  Syntax of the input.          [choices: "js", "json", "css", "scss"]
 ```
 
 ```
@@ -121,7 +121,7 @@ Options:
                    reporting.                       [string] [default: "<text>"]
   --stdin          Used to indicate that subject body will be read from stdin.
                                                       [boolean] [default: false]
-  --syntax         Syntax of the input.           [choices: "js", "css", "scss"]
+  --syntax         Syntax of the input.   [choices: "js", "json", "css", "scss"]
   --output-format    [choices: "json", "checkstyle", "table"] [default: "table"]
 ```
 
@@ -167,15 +167,60 @@ babel-node ./node_modules/.bin/gulp lint-javascript
 
 ```js
 import {
+    fixFiles,
+    fixText,
     getFormatter,
-    lintText,
-    lintFile
+    lintFiles,
+    lintText
 } from 'canonical';
 
 /**
  * @returns {function}
  */
 getFormatter;
+
+/**
+ * @typedef fixFiles~report
+ * @property {fixText~result[]} results
+ */
+
+/**
+ * @param {string[]} filePaths
+ * @return {fixFiles~report}
+ */
+
+fixFiles;
+
+/**
+ * @typedef fixText~result
+ * @property {string} filePath
+ * @property {string} output
+ */
+
+/**
+ * @typedef fixText~options
+ * @property {string} syntax (supported languages: 'css', 'js', 'json', 'scss').
+ */
+
+/**
+ * @param {string} text
+ * @param {fixText~options} options
+ * @return {fixText~result}
+ */
+fixText;
+
+/**
+ * @typedef lintFiles~report
+ * @property {lintText~result[]} results
+ * @property {number} errorCount
+ * @property {number} warningCount
+ */
+
+/**
+ * @param {string[]} filePaths
+ * @return {lintFiles~report}
+ */
+lintFiles;
 
 /**
  * @typedef lintText~message
@@ -198,7 +243,7 @@ getFormatter;
 
 /**
  * @typedef lintText~options
- * @property {string} language (supported languages: 'js', 'scss').
+ * @property {string} syntax (supported languages: 'css', 'js', 'json', 'scss').
  */
 
 /**
@@ -207,18 +252,5 @@ getFormatter;
  * @return {lintText~result}
  */
 lintText;
-
-/**
- * @typedef lintFiles~report
- * @property {lintText~result[]} results
- * @property {number} errorCount
- * @property {number} warningCount
- */
-
-/**
- * @param {string[]} filePaths
- * @return {lintFiles~report}
- */
-lintFiles;
 ```
 
