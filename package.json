@@ -68,7 +68,7 @@
   "scripts": {
     "build": "npm run pragmatist build",
     "bundle-dependencies": "bundled-dependencies",
-    "bundle-publish": "npm run bundle-dependencies; rm -fr ./node_modules; npm install --production; git commit -a -m 'Bundled dependencies.'; npm version patch; npm publish; npm install; git push",
+    "bundle-publish": "npm run build; npm run bundle-dependencies; git commit -m 'Bundled dependencies.' ./package.json; git push; rm -fr ./node_modules; npm install --production; npm publish; npm install;",
     "create-index": "create-index ./src/bin/commands ./src/formatters ./src/utilities ./src/utilities/bin ./src/syntaxes/js ./src/syntaxes/scss",
     "lint": "npm run pragmatist lint",
     "pragmatist": "pragmatist --es5",
