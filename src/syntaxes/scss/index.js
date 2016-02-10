@@ -1,10 +1,5 @@
 'create index';
 
-import fixText from './fixText.js';
-import lintText from './lintText.js';
-
-export {
-    fixText,
-    lintText
-};
+export fixText from './fixText.js';
+export lintText from './lintText.js';
 

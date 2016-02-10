@@ -1,18 +1,9 @@
 'create index';
 
-import bin from './bin';
-import fixFiles from './fixFiles.js';
-import fixText from './fixText.js';
-import getFormatter from './getFormatter.js';
-import lintFiles from './lintFiles.js';
-import lintText from './lintText.js';
-
-export {
-    bin,
-    fixFiles,
-    fixText,
-    getFormatter,
-    lintFiles,
-    lintText
-};
+export bin from './bin';
+export fixFiles from './fixFiles.js';
+export fixText from './fixText.js';
+export getFormatter from './getFormatter.js';
+export lintFiles from './lintFiles.js';
+export lintText from './lintText.js';
 

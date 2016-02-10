@@ -1,5 +1,6 @@
 import {
-    lintText as lintCssText
+    lintText as lintCssText,
+    lintText as lintScssText
 } from './../syntaxes/scss';
 
 import {
@@ -9,10 +10,6 @@ import {
 import {
     lintText as lintJsonText
 } from './../syntaxes/json';
-
-import {
-    lintText as lintScssText
-} from './../syntaxes/scss';
 
 type MessageType = {
     ruleId: string,

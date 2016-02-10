@@ -1,10 +1,5 @@
 'create index';
 
-import fixCommand from './fixCommand.js';
-import lintCommand from './lintCommand.js';
-
-export {
-    fixCommand,
-    lintCommand
-};
+export fixCommand from './fixCommand.js';
+export lintCommand from './lintCommand.js';
 
