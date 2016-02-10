@@ -1,23 +1,18 @@
 import yargs from 'yargs';
-import _ from 'lodash';
-
 import getStdin from 'get-stdin';
-
 import {
     fixFiles,
     fixText
 } from './../../utilities';
-
 import {
     failHandler,
-    getTargetPaths,
-    outputReport
+    getTargetPaths
 } from './../../utilities/bin';
 
-let handleStdin,
-    handleFilePaths;
+let handleFilePaths,
+    handleStdin;
 
-handleStdin = (yargs, argv) => {
+handleStdin = (argv) => {
     /* eslint-disable no-unused-expressions */
     yargs
     /* eslint-enable */
@@ -32,11 +27,13 @@ handleStdin = (yargs, argv) => {
                 syntax: argv.syntax
             });
 
+            /* eslint-disable no-console */
             console.log(result);
+            /* eslint-enable */
         });
 };
 
-handleFilePaths = (yargs, argv) => {
+handleFilePaths = (argv) => {
     let report,
         targetPaths;
 
@@ -50,7 +47,9 @@ handleFilePaths = (yargs, argv) => {
 
     report = fixFiles(targetPaths);
 
+    /* eslint-disable no-console */
     console.log(report);
+    /* eslint-enable */
 };
 
 export default () => {
@@ -81,8 +80,8 @@ export default () => {
         .argv;
 
     if (argv.stdin) {
-        handleStdin(yargs, argv);
+        handleStdin(argv);
     } else {
-        handleFilePaths(yargs, argv);
+        handleFilePaths(argv);
     }
 };

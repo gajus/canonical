@@ -1,16 +1,11 @@
 #! /usr/bin/env node
 
 import chalk from 'chalk';
-
-import yargs, {
-    argv
-} from 'yargs';
-
+import yargs from 'yargs';
 import {
     fixCommand,
     lintCommand
 } from './commands';
-
 import {
     failHandler
 } from './../utilities/bin';

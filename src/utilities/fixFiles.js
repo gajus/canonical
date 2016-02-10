@@ -5,13 +5,13 @@ import _ from 'lodash';
 import fixText from './fixText';
 import syntaxMap from './../syntaxMap';
 
-type ReportType = {
-    results: Array<ResultType>
-};
-
 type ResultType = {
     filePath: string,
     output: string
+};
+
+type ReportType = {
+    results: Array<ResultType>
 };
 
 export default (filePaths: Array<string>): ReportType => {

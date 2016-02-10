@@ -1,8 +1,8 @@
-export default (text: string): Object => {
+export default (): Object => {
     return {
+        errorCount: 0,
         filePath: '<text>',
         messages: [],
-        errorCount: 0,
         warningCount: 0
     };
 };

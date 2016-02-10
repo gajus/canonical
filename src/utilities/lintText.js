@@ -1,15 +1,14 @@
 import {
-    lintText as lintCssText,
-    lintText as lintScssText
-} from './../syntaxes/scss';
-
-import {
     lintText as lintJsText
 } from './../syntaxes/js';
 
 import {
     lintText as lintJsonText
 } from './../syntaxes/json';
+
+import {
+    lintText as lintScssText
+} from './../syntaxes/scss';
 
 type MessageType = {
     ruleId: string,
@@ -37,7 +36,7 @@ export default (text: string, options: OptionsType): LintTextResult => {
     let result;
 
     if (options.syntax === 'css') {
-        result = lintCssText(text);
+        result = lintScssText(text);
     } else if (options.syntax === 'js') {
         result = lintJsText(text);
     } else if (options.syntax === 'json') {

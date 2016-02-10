@@ -1,23 +1,19 @@
 import yargs from 'yargs';
-import _ from 'lodash';
-
 import getStdin from 'get-stdin';
-
 import {
     lintFiles,
     lintText
 } from './../../utilities';
-
 import {
     failHandler,
     getTargetPaths,
     outputReport
 } from './../../utilities/bin';
 
-let handleStdin,
-    handleFilePaths;
+let handleFilePaths,
+    handleStdin;
 
-handleStdin = (yargs, argv) => {
+handleStdin = (argv) => {
     /* eslint-disable no-unused-expressions */
     yargs
     /* eslint-enable */
@@ -43,7 +39,7 @@ handleStdin = (yargs, argv) => {
         });
 };
 
-handleFilePaths = (yargs, argv) => {
+handleFilePaths = (argv) => {
     let report,
         targetPaths;
 
@@ -101,8 +97,8 @@ export default () => {
         .argv;
 
     if (argv.stdin) {
-        handleStdin(yargs, argv);
+        handleStdin(argv);
     } else {
-        handleFilePaths(yargs, argv);
+        handleFilePaths(argv);
     }
 };
