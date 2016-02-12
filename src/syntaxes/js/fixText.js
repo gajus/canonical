@@ -4,10 +4,7 @@ import {
     CLIEngine
 } from 'eslint';
 
-let cli,
-    fixText;
-
-cli = new CLIEngine({
+const cli = new CLIEngine({
     allowInlineConfig: true,
     baseConfig: false,
     configFile: require.resolve('./eslintrc.json'),
@@ -20,13 +17,10 @@ cli = new CLIEngine({
     useEslintrc: false
 });
 
-fixText = (text: string): string => {
-    let fatalError,
-        report;
+const fixText = (text: string): string => {
+    const report = cli.executeOnText(text).results[0];
 
-    report = cli.executeOnText(text).results[0];
-
-    fatalError = _.find(report.messages, {
+    const fatalError = _.find(report.messages, {
         fatal: true
     });
 

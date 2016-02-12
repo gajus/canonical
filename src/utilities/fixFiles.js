@@ -15,23 +15,18 @@ type ReportType = {
 };
 
 export default (filePaths: Array<string>): ReportType => {
-    let report;
-
-    report = {};
-    report.results = [];
+    const report = {
+        results: []
+    };
 
     _.forEach(filePaths, (filePath) => {
-        let extensionName;
-
-        extensionName = path.extname(filePath);
+        const extensionName = path.extname(filePath);
 
         if (syntaxMap[extensionName]) {
-            let result,
-                text;
+            const result = {};
 
-            result = {};
+            let text = fs.readFileSync(filePath, 'utf8');
 
-            text = fs.readFileSync(filePath, 'utf8');
             text = fixText(text, {
                 syntax: syntaxMap[extensionName]
             });

@@ -3,37 +3,12 @@ import table from 'table';
 import _ from 'lodash';
 import pluralize from 'pluralize';
 
-let drawReport,
-    drawTable;
-
-/**
- * @param {Array} results
- * @returns {string}
- */
-drawReport = (results) => {
-    let files;
-
-    files = _.map(results, (result) => {
-        if (!result.messages.length) {
-            return '';
-        }
-
-        return result.filePath + '\n\n' + drawTable(result.messages);
-    });
-
-    files = _.filter(files);
-
-    return files.join('\n');
-};
-
 /**
  * @param {Array} messages
  * @returns {string}
  */
-drawTable = (messages) => {
-    let rows;
-
-    rows = [];
+const drawTable = (messages) => {
+    const rows = [];
 
     if (messages.length === 0) {
         return '';
@@ -93,6 +68,26 @@ drawTable = (messages) => {
             return index === 1;
         }
     });
+};
+
+/**
+ * @param {Array} results
+ * @returns {string}
+ */
+const drawReport = (results) => {
+    let files;
+
+    files = _.map(results, (result) => {
+        if (!result.messages.length) {
+            return '';
+        }
+
+        return result.filePath + '\n\n' + drawTable(result.messages);
+    });
+
+    files = _.filter(files);
+
+    return files.join('\n');
 };
 
 /**

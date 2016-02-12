@@ -21,6 +21,7 @@ process.on('unhandledRejection', (reason, promise) => {
 /* eslint-disable no-unused-expressions */
 yargs
 /* eslint-enable */
+    .exitProcess(false)
     .fail(failHandler)
     .help('help')
     .strict()

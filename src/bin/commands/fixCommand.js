@@ -9,10 +9,7 @@ import {
     getTargetPaths
 } from './../../utilities/bin';
 
-let handleFilePaths,
-    handleStdin;
-
-handleStdin = (argv) => {
+const handleStdin = (argv) => {
     /* eslint-disable no-unused-expressions */
     yargs
     /* eslint-enable */
@@ -21,9 +18,7 @@ handleStdin = (argv) => {
 
     getStdin()
         .then((stdin) => {
-            let result;
-
-            result = fixText(stdin, {
+            const result = fixText(stdin, {
                 syntax: argv.syntax
             });
 
@@ -33,29 +28,29 @@ handleStdin = (argv) => {
         });
 };
 
-handleFilePaths = (argv) => {
-    let report,
-        targetPaths;
-
+const handleFilePaths = (argv) => {
     /* eslint-disable no-unused-expressions */
     yargs
     /* eslint-enable */
         .demand(1)
         .argv;
 
-    targetPaths = getTargetPaths(argv._);
+    const targetPaths = getTargetPaths(argv._);
 
-    report = fixFiles(targetPaths);
+    const report = fixFiles(targetPaths);
 
     /* eslint-disable no-console */
     console.log(report);
     /* eslint-enable */
 };
 
-export default () => {
-    let argv;
+export default (subYargs) => {
+    subYargs
+        .exitProcess(false)
+        .fail(failHandler);
 
-    argv = yargs(process.argv.splice(3))
+    const argv = yargs(process.argv.splice(3))
+        .exitProcess(false)
         .fail(failHandler)
         .help('help')
         .strict()

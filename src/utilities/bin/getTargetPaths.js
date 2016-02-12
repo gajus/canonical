@@ -6,10 +6,9 @@ import resolveAbsolutePath from './resolveAbsolutePath';
  * Resolve an array of glob paths.
  */
 export default (searchPaths: Array<string>): Array<string> => {
-    let appendPaths,
-        paths;
+    let paths;
 
-    appendPaths = [];
+    const appendPaths = [];
 
     if (searchPaths.length) {
         paths = searchPaths;
@@ -18,9 +17,7 @@ export default (searchPaths: Array<string>): Array<string> => {
     }
 
     paths = _.filter(paths, (pathName) => {
-        let exclude;
-
-        exclude = _.endsWith(pathName, '/') === true;
+        const exclude = _.endsWith(pathName, '/') === true;
 
         if (exclude) {
             appendPaths.push(pathName + '**/*.js');

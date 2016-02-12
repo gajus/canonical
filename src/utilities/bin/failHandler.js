@@ -1,11 +1,7 @@
 import chalk from 'chalk';
 
-export default (message) => {
+export default (message, err) => {
     /* eslint-disable no-console */
-    console.log(chalk.red('Error'), message);
-    /* eslint-enable */
-
-    /* eslint-disable no-process-exit */
-    process.exit(1);
+    console.log(chalk.red('Error'), message, err.stack);
     /* eslint-enable */
 };

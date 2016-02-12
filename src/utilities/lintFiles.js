@@ -1,7 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
-
 import lintText from './lintText';
 import syntaxMap from './../syntaxMap';
 
@@ -12,26 +11,21 @@ type LintFilesReportType = {
 };
 
 export default (filePaths: Array<string>): LintFilesReportType => {
-    let report;
-
-    report = {};
-    report.results = [];
-    report.errorCount = 0;
-    report.warningCount = 0;
+    const report = {
+        errorCount: 0,
+        results: [],
+        warningCount: 0
+    };
 
     _.forEach(filePaths, (filePath) => {
-        let extensionName,
-            result,
-            text;
-
-        extensionName = path.extname(filePath);
+        const extensionName = path.extname(filePath);
 
         if (syntaxMap[extensionName]) {
-            text = fs.readFileSync(filePath, {
+            const text = fs.readFileSync(filePath, {
                 encoding: 'utf8'
             });
 
-            result = lintText(text, {
+            const result = lintText(text, {
                 syntax: syntaxMap[extensionName]
             });
 

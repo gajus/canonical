@@ -1,13 +1,11 @@
 import _ from 'lodash';
 import builder from 'xmlbuilder';
 
-let getMessageType;
-
 /**
  * @param {lintText~message} message
  * @returns {string}
  */
-getMessageType = (message) => {
+const getMessageType = (message) => {
     if (message.severity === 2) {
         return 'error';
     } else {
@@ -29,13 +27,11 @@ export default (report) => {
     xml.att('version', '4.3');
 
     _.forEach(report.results, (fileReport) => {
-        let fileNode;
-
         if (!fileReport.messages.length) {
             return;
         }
 
-        fileNode = xml.ele('file', {
+        const fileNode = xml.ele('file', {
             name: fileReport.filePath
         });
 

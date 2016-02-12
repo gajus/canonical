@@ -2,9 +2,7 @@ import {
     CLIEngine
 } from 'eslint';
 
-let cli;
-
-cli = new CLIEngine({
+const cli = new CLIEngine({
     allowInlineConfig: true,
     baseConfig: false,
     configFile: require.resolve('./eslintrc.json'),

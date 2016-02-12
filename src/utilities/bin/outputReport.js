@@ -13,9 +13,8 @@ export default (report, outputForamtName) => {
     if (outputForamtName === 'json') {
         output = JSON.stringify(report, '', 4);
     } else {
-        let formatter;
+        const formatter = getFormatter(outputForamtName);
 
-        formatter = getFormatter(outputForamtName);
         output = formatter(report);
     }
 
