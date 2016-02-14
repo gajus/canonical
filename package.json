@@ -1,83 +1,83 @@
 {
-  "author": {
-    "email": "gajus@gajus.com",
-    "name": "Gajus Kuizinas",
-    "url": "http://gajus.com"
-  },
-  "bin": "./dist/bin/canonical.js",
-  "bundledDependencies": [
-    "babel-eslint",
-    "chalk",
-    "css-lint",
-    "deep-sort-object",
-    "eslint",
-    "eslint-config-canonical",
-    "eslint-config-canonical-jsdoc",
-    "eslint-config-canonical-lodash",
-    "eslint-config-canonical-react",
-    "get-stdin",
-    "globby",
-    "lodash",
-    "pluralize",
-    "table",
-    "xmlbuilder",
-    "yargs"
-  ],
-  "dependencies": {
-    "babel-eslint": "^5.0.0-beta9",
-    "chalk": "^1.1.1",
-    "css-lint": "^1.0.1",
-    "deep-sort-object": "^1.0.1",
-    "eslint": "^2.0.0",
-    "eslint-config-canonical": "^1.4.15",
-    "eslint-config-canonical-jsdoc": "^1.2.17",
-    "eslint-config-canonical-lodash": "^1.0.11",
-    "eslint-config-canonical-react": "^1.2.10",
-    "get-stdin": "^5.0.1",
-    "globby": "^4.0.0",
-    "lodash": "^4.3.0",
-    "pluralize": "^1.2.1",
-    "table": "^3.7.8",
-    "xmlbuilder": "^4.2.1",
-    "yargs": "^4.0.0-alpha4"
-  },
-  "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
-  "devDependencies": {
-    "bundled-dependencies": "^2.1.0",
-    "chai": "^3.5.0",
-    "create-index": "^0.1.2",
-    "gitdown": "^2.4.0",
-    "jsonlint": "^1.6.2",
-    "pragmatist": "^3.0.4",
-    "tmp": "0.0.28"
-  },
-  "keywords": [
-    "eslint",
-    "scss-lint",
-    "scss",
-    "css",
-    "lint"
-  ],
-  "license": "BSD-3-Clause",
-  "main": "./dist/index.js",
-  "name": "canonical",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gajus/canonical"
-  },
-  "scripts": {
-    "build": "npm run pragmatist build",
-    "bundle-dependencies": "bundled-dependencies",
-    "bundle-publish": "npm run build; npm run bundle-dependencies; git commit -m 'Bundled dependencies.' ./package.json; git push; rm -fr ./node_modules; npm install --production; npm dedupe; npm prune; npm publish; npm install;",
-    "create-index": "create-index --update-index ./src",
-    "lint": "npm run pragmatist lint",
-    "pragmatist": "pragmatist --es5",
-    "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
-    "test": "npm run pragmatist test",
-    "watch": "npm run pragmatist watch",
-    "watch-build": "npm run pragmatist watch-build",
-    "watch-lint": "npm run pragmatist watch-lint",
-    "watch-test": "npm run pragmatist watch-test"
-  },
-  "version": "3.0.9"
+    "author": {
+        "email": "gajus@gajus.com",
+        "name": "Gajus Kuizinas",
+        "url": "http://gajus.com"
+    },
+    "bin": "./dist/bin/canonical.js",
+    "bundledDependencies": [
+        "babel-eslint",
+        "chalk",
+        "css-lint",
+        "deep-sort-object",
+        "eslint",
+        "eslint-config-canonical",
+        "eslint-config-canonical-jsdoc",
+        "eslint-config-canonical-lodash",
+        "eslint-config-canonical-react",
+        "get-stdin",
+        "globby",
+        "lodash",
+        "pluralize",
+        "table",
+        "xmlbuilder",
+        "yargs"
+    ],
+    "dependencies": {
+        "babel-eslint": "^5.0.0-beta9",
+        "chalk": "^1.1.1",
+        "css-lint": "^1.0.1",
+        "deep-sort-object": "^1.0.1",
+        "eslint": "^2.0.0",
+        "eslint-config-canonical": "^1.4.15",
+        "eslint-config-canonical-jsdoc": "^1.2.17",
+        "eslint-config-canonical-lodash": "^1.0.11",
+        "eslint-config-canonical-react": "^1.2.10",
+        "get-stdin": "^5.0.1",
+        "globby": "^4.0.0",
+        "lodash": "^4.3.0",
+        "pluralize": "^1.2.1",
+        "table": "^3.7.8",
+        "xmlbuilder": "^4.2.1",
+        "yargs": "^4.0.0-alpha4"
+    },
+    "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
+    "devDependencies": {
+        "bundled-dependencies": "^2.1.0",
+        "chai": "^3.5.0",
+        "create-index": "^0.1.2",
+        "gitdown": "^2.4.0",
+        "jsonlint": "^1.6.2",
+        "pragmatist": "^3.0.4",
+        "tmp": "0.0.28"
+    },
+    "keywords": [
+        "eslint",
+        "scss-lint",
+        "scss",
+        "css",
+        "lint"
+    ],
+    "license": "BSD-3-Clause",
+    "main": "./dist/index.js",
+    "name": "canonical",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gajus/canonical"
+    },
+    "scripts": {
+        "build": "npm run pragmatist build",
+        "bundle-dependencies": "bundled-dependencies",
+        "bundle-publish": "npm run build; npm run bundle-dependencies; git commit -m 'Bundled dependencies.' ./package.json; git push; rm -fr ./node_modules; npm install --production; npm dedupe; npm prune; npm publish; npm install;",
+        "create-index": "create-index --update-index ./src",
+        "lint": "npm run pragmatist lint",
+        "pragmatist": "pragmatist --es5",
+        "readme": "node ./node_modules/.bin/gitdown ./.README/README.md --output-file ./README.md",
+        "test": "npm run pragmatist test",
+        "watch": "npm run pragmatist watch",
+        "watch-build": "npm run pragmatist watch-build",
+        "watch-lint": "npm run pragmatist watch-lint",
+        "watch-test": "npm run pragmatist watch-test"
+    },
+    "version": "3.0.9"
 }
