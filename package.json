@@ -29,10 +29,10 @@
         "css-lint": "^1.0.1",
         "deep-sort-object": "^1.0.1",
         "eslint": "^2.0.0",
-        "eslint-config-canonical": "^1.4.14",
-        "eslint-config-canonical-jsdoc": "^1.2.15",
-        "eslint-config-canonical-lodash": "^1.0.10",
-        "eslint-config-canonical-react": "^1.2.9",
+        "eslint-config-canonical": "^1.4.15",
+        "eslint-config-canonical-jsdoc": "^1.2.17",
+        "eslint-config-canonical-lodash": "^1.0.11",
+        "eslint-config-canonical-react": "^1.2.10",
         "get-stdin": "^5.0.1",
         "globby": "^4.0.0",
         "lodash": "^4.3.0",
@@ -48,7 +48,7 @@
         "create-index": "^0.1.2",
         "gitdown": "^2.4.0",
         "jsonlint": "^1.6.2",
-        "pragmatist": "^3.0.3",
+        "pragmatist": "^3.0.4",
         "tmp": "0.0.28"
     },
     "keywords": [
