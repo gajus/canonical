@@ -39,7 +39,7 @@
         "pluralize": "^1.2.1",
         "table": "^3.7.8",
         "xmlbuilder": "^4.2.1",
-        "yargs": "^4.0.0-alpha4"
+        "yargs": "^4.0.0"
     },
     "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
     "devDependencies": {
@@ -48,7 +48,7 @@
         "create-index": "^0.1.2",
         "gitdown": "^2.4.0",
         "jsonlint": "^1.6.2",
-        "pragmatist": "^3.0.4",
+        "pragmatist": "^3.0.5",
         "tmp": "0.0.28"
     },
     "keywords": [
