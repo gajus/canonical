@@ -43,7 +43,7 @@
   },
   "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
   "devDependencies": {
-    "bundled-dependencies": "^2.1.0",
+    "bundle-dependencies": "^1.0.2",
     "chai": "^3.5.0",
     "create-index": "^0.1.2",
     "gitdown": "^2.4.0",
@@ -67,8 +67,8 @@
   },
   "scripts": {
     "build": "npm run pragmatist build",
-    "bundle-dependencies": "bundled-dependencies",
-    "bundle-publish": "npm run build; npm run bundle-dependencies; git commit -m 'Bundled dependencies.' ./package.json; git push; rm -fr ./node_modules; npm install --production; npm dedupe; npm prune; npm publish; npm install;",
+    "bundle-dependencies": "bundle-dependencies",
+    "bundle-publish": "npm run bundle-dependencies update; git commit -m 'Bundled dependencies.' ./package.json; git push; rm -fr ./node_modules; npm install --production $(bundle-dependencies list-bundled-dependencies); npm dedupe; npm prune; npm publish; npm install;",
     "create-index": "create-index --update-index ./src",
     "lint": "npm run pragmatist lint",
     "pragmatist": "pragmatist --es5",
