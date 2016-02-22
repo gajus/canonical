@@ -24,22 +24,22 @@
     "yargs"
   ],
   "dependencies": {
-    "babel-eslint": "^5.0.0-beta9",
+    "babel-eslint": "^5.0.0",
     "chalk": "^1.1.1",
     "css-lint": "^1.0.1",
     "deep-sort-object": "^1.0.1",
-    "eslint": "^2.0.0",
-    "eslint-config-canonical": "^1.4.16",
-    "eslint-config-canonical-jsdoc": "^1.2.19",
-    "eslint-config-canonical-lodash": "^1.0.11",
-    "eslint-config-canonical-react": "^1.2.10",
+    "eslint": "^2.2.0",
+    "eslint-config-canonical": "^1.6.0",
+    "eslint-config-canonical-jsdoc": "^1.2.20",
+    "eslint-config-canonical-lodash": "^1.0.12",
+    "eslint-config-canonical-react": "^1.2.11",
     "get-stdin": "^5.0.1",
     "globby": "^4.0.0",
-    "lodash": "^4.3.0",
+    "lodash": "^4.5.1",
     "pluralize": "^1.2.1",
     "table": "^3.7.8",
     "xmlbuilder": "^4.2.1",
-    "yargs": "^4.0.0"
+    "yargs": "^4.1.0"
   },
   "description": "Canonical code style linter and formatter for JavaScript, SCSS, CSS and JSON.",
   "devDependencies": {
@@ -48,7 +48,7 @@
     "create-index": "^0.1.2",
     "gitdown": "^2.4.0",
     "jsonlint": "^1.6.2",
-    "pragmatist": "^3.0.5",
+    "pragmatist": "^3.0.10",
     "tmp": "0.0.28"
   },
   "keywords": [
