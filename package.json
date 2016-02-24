@@ -68,7 +68,7 @@
   "scripts": {
     "build": "npm run pragmatist build",
     "bundle-dependencies": "bundle-dependencies",
-    "bundle-publish": "bundle-dependencies update --exclude canonical chokidar node-notifier; git commit -m 'Bundled dependencies.' ./package.json; git push; BUNDLED_DEPENDENCIES=$(bundle-dependencies list-bundled-dependencies); rm -fr ./node_modules; npm install --silent --production $BUNDLED_DEPENDENCIES; npm dedupe; npm prune; npm publish; npm install --silent;",
+    "bundle-publish": "bundle-dependencies update --exclude eslint-config-canonical eslint-config-canonical-jsdoc eslint-config-canonical-lodash eslint-config-canonical-react; git commit -m 'Bundled dependencies.' ./package.json; git push; BUNDLED_DEPENDENCIES=$(bundle-dependencies list-bundled-dependencies); rm -fr ./node_modules; npm install --silent --production $BUNDLED_DEPENDENCIES; npm dedupe; npm prune; npm publish; npm install --silent;",
     "create-index": "create-index --update-index ./src",
     "lint": "npm run pragmatist lint",
     "pragmatist": "pragmatist --es5",
