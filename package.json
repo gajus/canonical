@@ -76,5 +76,5 @@
     "watch-lint": "npm run pragmatist watch-lint",
     "watch-test": "npm run pragmatist watch-test"
   },
-  "version": "3.1.6"
+  "version": "3.1.7"
 }
