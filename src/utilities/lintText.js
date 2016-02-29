@@ -10,6 +10,9 @@ import {
     lintText as lintScssText
 } from './../syntaxes/scss';
 
+import crypto from 'crypto';
+import LRU from 'lru-cache';
+
 type MessageType = {
     ruleId: string,
     severity: number,
@@ -32,8 +35,18 @@ type OptionsType = {
     filePath: string
 };
 
+const cache = LRU(500);
+
 export default (text: string, options: OptionsType): LintTextResult => {
     let result;
+
+    const hash = crypto.createHash('sha1').update(text + JSON.stringify(options)).digest('hex');
+
+    result = cache.get(hash);
+
+    if (result) {
+        return result;
+    }
 
     if (options.syntax === 'css') {
         result = lintScssText(text);
@@ -50,6 +63,8 @@ export default (text: string, options: OptionsType): LintTextResult => {
     if (options.filePath) {
         result.filePath = options.filePath;
     }
+
+    cache.set(hash, result);
 
     return result;
 };
