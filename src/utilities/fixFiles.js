@@ -1,20 +1,13 @@
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
-
 import fixText from './fixText';
 import syntaxMap from './../syntaxMap';
+import type {
+    FixReportType
+} from './../types';
 
-type ResultType = {
-    filePath: string,
-    output: string
-};
-
-type ReportType = {
-    results: Array<ResultType>
-};
-
-export default (filePaths: Array<string>): ReportType => {
+export default (filePaths: Array<string>): FixReportType => {
     const report = {
         results: []
     };
@@ -23,19 +16,17 @@ export default (filePaths: Array<string>): ReportType => {
         const extensionName = path.extname(filePath);
 
         if (syntaxMap[extensionName]) {
-            const result = {};
-
-            let text = fs.readFileSync(filePath, 'utf8');
-
-            text = fixText(text, {
+            const text = fs.readFileSync(filePath, 'utf8');
+            const output = fixText(text, {
                 syntax: syntaxMap[extensionName]
             });
-            text = fs.writeFileSync(filePath, text);
 
-            result.filePath = filePath;
-            result.output = text;
+            fs.writeFileSync(filePath, output);
 
-            report.results.push(result);
+            report.results.push({
+                filePath,
+                output
+            });
         } else {
             /* eslint-disable no-console */
             console.warn('Ignoring file "' + filePath + '". No syntax mapped to "' + extensionName + '" extension.');

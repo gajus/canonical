@@ -26,7 +26,7 @@ describe('utilities', () => {
                         fixText('let foo;<>;;', {
                             syntax: 'js'
                         });
-                    }).to.throw(Error, 'Parsing error: Unexpected token (line: 1, column: 9).');
+                    }).to.throw(Error, 'Parsing error: Unexpected token (line: 1, column: 10).');
                 });
             });
             it('fixes syntax error', () => {

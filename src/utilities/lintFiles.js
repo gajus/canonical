@@ -3,14 +3,11 @@ import fs from 'fs';
 import _ from 'lodash';
 import lintText from './lintText';
 import syntaxMap from './../syntaxMap';
+import type {
+    LintReportType
+} from './../types';
 
-type LintFilesReportType = {
-    results: Array,
-    errorCount: number,
-    warningCount: number
-};
-
-export default (filePaths: Array<string>): LintFilesReportType => {
+export default (filePaths: Array<string>): LintReportType => {
     const report = {
         errorCount: 0,
         results: [],

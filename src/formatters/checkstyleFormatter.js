@@ -1,5 +1,8 @@
 import _ from 'lodash';
 import builder from 'xmlbuilder';
+import type {
+    ReportType
+} from './../types';
 
 /**
  * @param {lintText~message} message
@@ -15,10 +18,8 @@ const getMessageType = (message) => {
 
 /**
  * @see https://github.com/mila-labs/jshint-checkstyle-file-reporter
- * @param {lintFiles~report} report
- * @returns {string}
  */
-export default (report) => {
+export default (report: ReportType): string => {
     let xml;
 
     xml = builder

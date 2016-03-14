@@ -1,13 +1,12 @@
+import _ from 'lodash';
 import chalk from 'chalk';
 import table from 'table';
-import _ from 'lodash';
 import pluralize from 'pluralize';
+import type {
+    ReportType
+} from './../types';
 
-/**
- * @param {Array} messages
- * @returns {string}
- */
-const drawTable = (messages) => {
+const drawTable = (messages: Array): string => {
     const rows = [];
 
     if (messages.length === 0) {
@@ -70,11 +69,7 @@ const drawTable = (messages) => {
     });
 };
 
-/**
- * @param {Array} results
- * @returns {string}
- */
-const drawReport = (results) => {
+const drawReport = (results: Array): string => {
     let files;
 
     files = _.map(results, (result) => {
@@ -90,18 +85,7 @@ const drawReport = (results) => {
     return files.join('\n');
 };
 
-/**
- * @typedef {Object} report
- * @property {number} errorCount
- * @property {number} warningCount
- * @property {Object[]} results
- */
-
-/**
- * @param {report} report
- * @returns {string}
- */
-export default (report) => {
+export default (report: ReportType): string => {
     let result;
 
     result = '';
@@ -124,9 +108,7 @@ export default (report) => {
                 wrapWord: true
             }
         },
-        drawHorizontalLine: () => {
-            return true;
-        }
+        drawHorizontalLine: _.constant(true)
     });
 
     return result;

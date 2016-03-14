@@ -40,7 +40,6 @@ export default (text: string): string => {
     output = text;
 
     // @see https://github.com/eslint/eslint/issues/5004
-
     do {
         input = output;
 

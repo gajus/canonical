@@ -7,5 +7,7 @@ export default (text: string): string => {
 
     data = sortObject(data);
 
-    return JSON.stringify(data, null, '    ');
+    data = JSON.stringify(data, null, '    ');
+
+    return data;
 };

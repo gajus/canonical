@@ -1,20 +1,17 @@
 import {
     fixText as fixJsText
 } from './../syntaxes/js';
-
 import {
     fixText as fixJsonText
 } from './../syntaxes/json';
-
 import {
     fixText as fixScssText
 } from './../syntaxes/scss';
+import type {
+    FixOptionsType
+} from './../types';
 
-type OptionsType = {
-    syntax: string
-};
-
-export default (text: string, options: OptionsType = {}): string => {
+export default (text: string, options: FixOptionsType): string => {
     let result;
 
     if (options.syntax === 'css') {
