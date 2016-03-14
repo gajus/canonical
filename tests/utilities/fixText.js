@@ -30,9 +30,7 @@ describe('utilities', () => {
                 });
             });
             it('fixes syntax error', () => {
-                let report;
-
-                report = fixText('let foo;;;', {
+                const report = fixText('let foo;;;', {
                     syntax: 'js'
                 });
 
