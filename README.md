@@ -2,10 +2,11 @@
 
 [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical)
 [![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat-square)](https://www.npmjs.com/package/canonical)
-[![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
+[![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
 * [Canonical](#canonical)
     * [Badge](#canonical-badge)
+        * [Projects that are using Canonical](#canonical-badge-projects-that-are-using-canonical)
     * [Rules](#canonical-rules)
     * [Usage](#canonical-usage)
         * [Command Line](#canonical-usage-command-line)
@@ -14,6 +15,8 @@
 
 
 Canonical code style linter and formatter for JavaScript, SCSS and CSS.
+
+Canonical is the most comprehensive code style guide. It consists of more than [500 rules](https://github.com/gajus/eslint-config-canonical), some of which are custom written for Canonical (e.g. [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)). The aim of Canonical is to enforce consistent code style, reduce noise in code version control and promote use of latest ES features.
 
 <h2 id="canonical-badge">Badge</h2>
 
@@ -25,14 +28,38 @@ Use this in one of your projects? Include one of these badges in your README to 
 [![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 ```
 
+<h3 id="canonical-badge-projects-that-are-using-canonical">Projects that are using Canonical</h3>
+
+* https://github.com/gajus/babel-plugin-lodash-modularize
+* https://github.com/gajus/babel-plugin-transform-strong-mode
+* https://github.com/gajus/babel-preset-es2015-webpack
+* https://github.com/gajus/bundle-dependencies
+* https://github.com/gajus/canonical
+* https://github.com/gajus/cluster-map
+* https://github.com/gajus/create-index
+* https://github.com/gajus/eslint-plugin-flowtype
+* https://github.com/gajus/eslint-plugin-jsdoc
+* https://github.com/gajus/gitdown
+* https://github.com/gajus/object-unfreeze
+* https://github.com/gajus/pragmatist
+* https://github.com/gajus/prettyprint
+* https://github.com/gajus/react-carousel
+* https://github.com/gajus/react-css-modules
+* https://github.com/gajus/react-outside-event
+* https://github.com/gajus/react-youtube-player
+* https://github.com/gajus/redux-immutable
+* https://github.com/gajus/scream
+* https://github.com/gajus/swing
+* https://github.com/gajus/table
+* https://github.com/gajus/url-extractor
+* https://github.com/gajus/write-file-webpack-plugin
+* https://github.com/gajus/youtube-player
+
 <h2 id="canonical-rules">Rules</h2>
 
 Canonical rules are composed of the following packages:
 
 * [`eslint-config-canonical`](https://github.com/gajus/eslint-config-canonical)
-* [`eslint-config-canonical-jsdoc`](https://github.com/gajus/eslint-config-canonical-jsdoc)
-* [`eslint-config-canonical-lodash`](https://github.com/gajus/eslint-config-canonical-lodash)
-* [`eslint-config-canonical-react`](https://github.com/gajus/eslint-config-canonical-react)
 
 
 <h2 id="canonical-usage">Usage</h2>
