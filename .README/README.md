@@ -8,7 +8,7 @@
 
 Canonical code style linter and formatter for JavaScript, SCSS and CSS.
 
-Canonical is the most comprehensive code style guide. It consists of more than [500 rules](https://github.com/gajus/eslint-config-canonical), some of which are custom written for Canonical (e.g. [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)). The aim of Canonical is to enforce consistent code style, reduce noise in code version control and promote use of latest ES features.
+Canonical is the most comprehensive code style guide. It consists of more than [500 rules](https://github.com/gajus/eslint-config-canonical), some of which are custom written for Canonical (e.g. [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)). The aim of Canonical is to enforce consistent code style, reduce noise in code version control and promote use of the latest ES features.
 
 {"gitdown": "include", "file": "./badge.md"}
 {"gitdown": "include", "file": "./rules.md"}
