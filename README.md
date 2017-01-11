@@ -1,3 +1,5 @@
+> DEPRECATED in favour of https://github.com/gajus/eslint-config-canonical
+
 <h1 id="canonical">Canonical</h1>
 
 [![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical)
